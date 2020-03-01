@@ -1,8 +1,8 @@
 " Trygve Woldseth
 " Brukt guide > https://dougblack.io/words/a-good-vimrc.html
-" ╔════════╗  
-" ║Farger ║
-" ╚════╝
+""""""""""""""
+"   Farger 
+"""""""""""""" 
 
 syntax enable
 "╭──────╮
@@ -21,6 +21,7 @@ set expandtab           " Tab blir til space
 
 "   UI
 set number              " Vis linje nummer
+set relativenumber      " viser det relative linjenummeret
 set showcmd             " Vis siste command i nedre jørne
 set cursorline          " Highlight current line
 filetype indent on      " Laster inn filtype spesifikke indent ie. .vim/indent/python.vim blir lastet når en *.py fil blir åpnet
