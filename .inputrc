@@ -1,0 +1,11 @@
+$include /etc/inputrc
+
+
+# set meta-flag on
+# set input-meta on
+# set convert-meta on
+# set output-meta on
+
+# do not bell on tab-completion
+# set bell-style none
+# set bell-style visible
