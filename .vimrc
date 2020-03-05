@@ -1,7 +1,7 @@
-" Trygve Woldseth
+":PluginClean Trygve-Woldseth 
 " Brukt guide > https://dougblack.io/words/a-good-vimrc.html
 
-" spellchek in vim add maby switch to nvim
+" spellcheck in vim add maybe switch to nvim
 " http://thejakeharding.com/tutorial/2012/06/13/using-spell-check-in-vim.html
 
 " notes:
@@ -13,52 +13,59 @@
 "###############################
 "   Genera settings
 "###############################
-
 set nocompatible
 filetype off
+let mapleader=","
+set smartcase       " makes the / sertch case insensetive
+set wildmenu
+set wildignorecase
+set wildmode=longest:full,full
 
 
 
 "###############################
-"   package managment 
+"   package management 
 "###############################
 " requiered for vundle
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-    
+
+" :PluginInstall for installing stuff
 Plugin 'VundleVim/Vundle.vim'       " requiered for vundle
 Plugin 'kamykn/spelunker.vim'         " spellcheking 
-
+Plugin 'mbbill/undotree'
 
 " Coding stuff
 Plugin 'valloric/youcompleteme'     " Autocomplete vim
 Plugin 'scrooloose/syntastic'       " Syntax highlighting 
 
-" Git
+"" Git
 Plugin 'airblade/vim-gitgutter'     " Viser pluss og minus i margen på endringer fra siste commit
-
-" Visual/ui
-Plugin 'nathanaelkane/vim-indent-guides'    " Shows indent guides 
-
-Plugin 'scrooloose/nerdtree'        " File tree pluggin
+Plugin 'tpope/vim-fugitive'
+ 
+"" Visual/ui
+"Plugin 'nathanaelkane/vim-indent-guides'    " Shows indent guides 
+"
+Plugin 'scrooloose/nerdtree'        " File tree plugin
 Plugin 'vim-airline/vim-airline'    " Status linje nederst
 Plugin 'vim-airline/vim-airline-themes'
+
 Plugin 'majutsushi/tagbar'          " Tag bar på siden
-
-" Motions
-Plugin 'tpope/vim-surround'         " Surround stuff vim 
-"Plugin 'preservim/nerdcommenter'    " Comment out lines 
+"
+"" Motions
+"Plugin 'tpope/vim-surround'         " Surround stuff vim 
+""Plugin 'preservim/nerdcommenter'    " Comment out lines 
 Plugin 'tpope/vim-commentary'       " coment stuff out 
-
-" Actions
-Plugin 'vim-scripts/ReplaceWithRegister'       " Gives the possebilety for replacing a word with a register word with gr
-
-
+"
+"" Actions
+"Plugin 'vim-scripts/ReplaceWithRegister'       " Gives the possebilety for replacing a word with a register word with gr
 
 
 call vundle#end()        
 filetype plugin indent on
+
+
 
 "###############################
 "   Farger 
@@ -101,8 +108,9 @@ set hlsearch            " Highlight matcer i søk
 
 
 "###############################
-"   Movement
+" Key Remaps 
 "###############################
+
 " beveger seg over visuelle linjer ikke vanlige
 
 " Rebinner gå til start ^ og slutt $ av linje til B(ginning) og E(nd)
@@ -111,14 +119,6 @@ nnoremap E $
 
 onoremap B ^
 onoremap E $
-
-" når nye tastaturet kommer med alle dem rara key bindingene så mule jeg skal koble opp så jeg kan bruke hjkl for bevegelse
-
-
-"###############################
-" Editing 
-"###############################
-
 
 nmap <A-j> mz:m+<cr>`z
 nmap <A-k> mz:m-2<cr>`z
@@ -136,14 +136,35 @@ imap <A-k> <Esc>ømz:m-2<cr>`za
 "vnoremap p "0p 
 "vnoremap <leader>p ""p
 
+" makes /sertch case insensitive
+nnoremap / /\C
+
+" remaps the vhange window key to shift w insted of ctrl w
+nnoremap W <C-w>
+
+"   Plugin remaps 
+
+" Spelunker
+" remaps the correct word key to the default vim
+
+nmap zl Zl
+nmap zg Zg
+nmap zw Zw
+
+nmap zn ZN
+nmap zp ZP
+
+" Toggels the undutree
+nnoremap <leader>u :UndotreeToggle<cr>
 
 
+" Toggels the tagBar
+nnoremap <leader>t :Tagbar<cr>
 
-"###############################
-" Leader Shortcuts
-"###############################
+" Toggels the undutree
+nnoremap <leader>n :NERDTreeToggle<cr>
 
-let mapleader=","
+
 
 
 
@@ -163,19 +184,34 @@ endw
 set ttimeout ttimeoutlen=50
 
 
+
+
+
+
+
+
+
+
+
+
 "###############################
 " Plugin Settings
 "###############################
 
+" Spelunker
+set spelllang=en
+set spellfile=$HOME/Dropbox/Vim/spell/en.utf-8.add
+set nospell
+
 " Airline
-let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 1                " Togles the tab selection at the top of the screen
 
+let g:airline#extensions#tabline#formatter = 'default'      " The theme to use for the tabs  
+let g:airline_powerline_fonts = 1
 
-
-
-
-
-
+" NERDtree
+let NERDTreeIgnore=['\.$', '\~$']       " The files to ignore
+let NERDTreeShowBookmarks=1             " Shows the bookmarks
 
 
 
