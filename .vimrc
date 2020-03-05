@@ -7,34 +7,53 @@
 " notes:
 " edit over multiple lines 
 " ctrl-v to go to visual mode, select lines
-" shift i to go to insert do changes(will not show up everywhere untill done)
+        " shift i to go to insert do changes(will not show up everywhere untill done)
 " press esc to commit changes
+" CarApple 
+"###############################
+"   Genera settings
+"###############################
+
+set nocompatible
+filetype off
+
 
 
 "###############################
 "   package managment 
 "###############################
 " requiered for vundle
-set nocompatible
-filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
     
 Plugin 'VundleVim/Vundle.vim'       " requiered for vundle
+Plugin 'kamykn/spelunker.vim'         " spellcheking 
 
-Plugin 'tpope/vim-surround'         " Surround stuff vim 
+
+" Coding stuff
 Plugin 'valloric/youcompleteme'     " Autocomplete vim
 Plugin 'scrooloose/syntastic'       " Syntax highlighting 
+
+" Git
 Plugin 'airblade/vim-gitgutter'     " Viser pluss og minus i margen på endringer fra siste commit
+
+" Visual/ui
+Plugin 'nathanaelkane/vim-indent-guides'    " Shows indent guides 
+
 Plugin 'scrooloose/nerdtree'        " File tree pluggin
 Plugin 'vim-airline/vim-airline'    " Status linje nederst
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'majutsushi/tagbar'          " Tag bar på siden
+
+" Motions
+Plugin 'tpope/vim-surround'         " Surround stuff vim 
 "Plugin 'preservim/nerdcommenter'    " Comment out lines 
 Plugin 'tpope/vim-commentary'       " coment stuff out 
+
+" Actions
 Plugin 'vim-scripts/ReplaceWithRegister'       " Gives the possebilety for replacing a word with a register word with gr
 
-Plugin 'majutsushi/tagbar'          " Tag bar på siden
-Plugin 'nathanaelkane/vim-indent-guides'    " Shows indent guides 
 
 
 
@@ -142,5 +161,29 @@ while c <= 'z'
 endw
 
 set ttimeout ttimeoutlen=50
+
+
+"###############################
+" Plugin Settings
+"###############################
+
+" Airline
+let g:airline#extensions#tabline#enabled = 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
