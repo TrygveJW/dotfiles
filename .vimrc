@@ -202,6 +202,8 @@ set ttimeout ttimeoutlen=50
 set spelllang=en
 set spellfile=$HOME/Dropbox/Vim/spell/en.utf-8.add
 set nospell
+let g:spelunker_check_type = 2                              " Sets the spelling chek to only chek words in buffer(open files)
+
 
 " Airline
 let g:airline#extensions#tabline#enabled = 1                " Togles the tab selection at the top of the screen
