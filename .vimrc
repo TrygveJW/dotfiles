@@ -48,6 +48,7 @@ Plugin 'tpope/vim-fugitive'
 "Plugin 'nathanaelkane/vim-indent-guides'    " Shows indent guides 
 "
 Plugin 'scrooloose/nerdtree'        " File tree plugin
+Plugin 'Xuyuanp/nerdtree-git-plugin'    " Adds git symbols to the git nerd tree
 Plugin 'vim-airline/vim-airline'    " Status linje nederst
 Plugin 'vim-airline/vim-airline-themes'
 
@@ -208,7 +209,7 @@ let g:spelunker_check_type = 2                              " Sets the spelling 
 " Airline
 let g:airline#extensions#tabline#enabled = 1                " Togles the tab selection at the top of the screen
 
-let g:airline#extensions#tabline#formatter = 'default'      " The theme to use for the tabs  
+let g:airline#extensions#tabline#formatter = 'unique_tail'      " The theme to use for the tabs  
 let g:airline_powerline_fonts = 1
 
 " NERDtree
