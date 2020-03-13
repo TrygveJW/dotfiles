@@ -29,12 +29,14 @@ esc -  to commit changes
 
 
 
-
-
 ###############################
     Plugins
 ###############################
 
+@Suround 
+s - motion for suround
+foreksempel:
+cs") 
 
 @spelunker
 Zl - Correct word under cursor
@@ -43,4 +45,3 @@ Zw - mark a word as wrong (comment out of spellfile)
 
 ZN - Go to next wrong word
 ZP - go to prev wrong word
-

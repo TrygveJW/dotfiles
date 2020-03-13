@@ -11,61 +11,24 @@
 " press esc to commit changes
 " CarApple 
 "###############################
-"   Genera settings
+"   General settings
 "###############################
 set nocompatible
 filetype off
 let mapleader=","
 set smartcase       " makes the / sertch case insensetive
-set wildmenu
-set wildignorecase
-set wildmode=longest:full,full
+"set wildmenu
+"set wildignorecase
+"set wildmode=longest:full,full
+set mouse=a
 
+set ignorecase
+set smartcase
 
-
+set wildignore+=*.pyc,*.o,*.obj,*.svn,*.swp,*.class,*.hg,*.DS_Store,*.min.*,*.meta
 "###############################
 "   package management 
 "###############################
-" requiered for vundle
-
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" :PluginInstall for installing stuff
-Plugin 'VundleVim/Vundle.vim'       " requiered for vundle
-Plugin 'kamykn/spelunker.vim'         " spellcheking 
-Plugin 'mbbill/undotree'
-
-" Coding stuff
-Plugin 'valloric/youcompleteme'     " Autocomplete vim
-Plugin 'scrooloose/syntastic'       " Syntax highlighting 
-
-"" Git
-Plugin 'airblade/vim-gitgutter'     " Viser pluss og minus i margen på endringer fra siste commit
-Plugin 'tpope/vim-fugitive'
- 
-"" Visual/ui
-"Plugin 'nathanaelkane/vim-indent-guides'    " Shows indent guides 
-"
-Plugin 'scrooloose/nerdtree'        " File tree plugin
-Plugin 'Xuyuanp/nerdtree-git-plugin'    " Adds git symbols to the git nerd tree
-Plugin 'vim-airline/vim-airline'    " Status linje nederst
-Plugin 'vim-airline/vim-airline-themes'
-
-Plugin 'majutsushi/tagbar'          " Tag bar på siden
-"
-"" Motions
-"Plugin 'tpope/vim-surround'         " Surround stuff vim 
-""Plugin 'preservim/nerdcommenter'    " Comment out lines 
-Plugin 'tpope/vim-commentary'       " coment stuff out 
-"
-"" Actions
-"Plugin 'vim-scripts/ReplaceWithRegister'       " Gives the possebilety for replacing a word with a register word with gr
-
-
-call vundle#end()        
-filetype plugin indent on
-
 
 
 "###############################
@@ -84,7 +47,8 @@ set expandtab           " Tab blir til space
 "   UI
 "###############################
 set number              " Vis linje nummer
-set relativenumber      " viser det relative linjenummeret
+set relativenumber     
+" viser det relative linjenummeret
 set showcmd             " Vis siste command i nedre jørne
 "set cursorline          " Highlight current line
 filetype indent on      " Laster inn filtype spesifikke indent ie. .vim/indent/python.vim blir lastet når en *.py fil blir åpnet
@@ -101,7 +65,7 @@ set incsearch           " Søk fortøpende mens karekterer blir lakt till
 set hlsearch            " Highlight matcer i søk
 
 " binner avmarkering fra søk til space
-"nnoremap <leader><space> :nohlsearch<CR>
+nnoremap <leader><space> :nohlsearch<CR>
 
 "   Folding
 " Når man kan 'klappe' sammen en fungsjon og ikke se den
@@ -155,16 +119,6 @@ nmap zw Zw
 nmap zn ZN
 nmap zp ZP
 
-" Toggels the undutree
-nnoremap <leader>u :UndotreeToggle<cr>
-
-
-" Toggels the tagBar
-nnoremap <leader>t :Tagbar<cr>
-
-" Toggels the undutree
-nnoremap <leader>n :NERDTreeToggle<cr>
-
 
 
 
@@ -198,31 +152,4 @@ set ttimeout ttimeoutlen=50
 "###############################
 " Plugin Settings
 "###############################
-
-" Spelunker
-set spelllang=en
-set spellfile=$HOME/Dropbox/Vim/spell/en.utf-8.add
-set nospell
-let g:spelunker_check_type = 2                              " Sets the spelling chek to only chek words in buffer(open files)
-
-
-" Airline
-let g:airline#extensions#tabline#enabled = 1                " Togles the tab selection at the top of the screen
-
-let g:airline#extensions#tabline#formatter = 'unique_tail'      " The theme to use for the tabs  
-let g:airline_powerline_fonts = 1
-
-" NERDtree
-let NERDTreeIgnore=['\.$', '\~$']       " The files to ignore
-let NERDTreeShowBookmarks=1             " Shows the bookmarks
-
-
-
-
-
-
-
-
-
-
 
