@@ -19,6 +19,7 @@ setopt share_history
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 alias ll='ls -alF'
+alias lg='ls -alF | grep -i'
 alias surf='surf -d'
 alias hh='history | grep -i'
 

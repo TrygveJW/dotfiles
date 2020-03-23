@@ -21,6 +21,13 @@ set wildmenu
 set wildignorecase
 set wildmode=longest:full,full
 
+set mouse=a
+
+
+set ignorecase
+set smartcase
+
+set wildignore+=*.pyc,*.o,*.obj,*.svn,*.swp,*.class,*.hg,*.DS_Store,*.min.*,*.meta
 
 
 "###############################
@@ -35,6 +42,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'       " requiered for vundle
 Plugin 'kamykn/spelunker.vim'         " spellcheking 
 Plugin 'mbbill/undotree'
+Plugin 'kien/ctrlp.vim'
 
 " Coding stuff
 Plugin 'valloric/youcompleteme'     " Autocomplete vim
