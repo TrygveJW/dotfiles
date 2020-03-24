@@ -11,12 +11,13 @@
 " press esc to commit changes
 " CarApple 
 "###############################
-"   Genera settings
+"   General settings
 "###############################
 set nocompatible
 filetype off
 let mapleader=","
 set smartcase       " makes the / sertch case insensetive
+<<<<<<< HEAD
 set wildmenu
 set wildignorecase
 set wildmode=longest:full,full
@@ -28,11 +29,21 @@ set ignorecase
 set smartcase
 
 set wildignore+=*.pyc,*.o,*.obj,*.svn,*.swp,*.class,*.hg,*.DS_Store,*.min.*,*.meta
+=======
+"set wildmenu
+"set wildignorecase
+"set wildmode=longest:full,full
+set mouse=a
+>>>>>>> f70697b5202e4eeb395017c2524c0d635b732e2b
 
+set ignorecase
+set smartcase
 
+set wildignore+=*.pyc,*.o,*.obj,*.svn,*.swp,*.class,*.hg,*.DS_Store,*.min.*,*.meta
 "###############################
 "   package management 
 "###############################
+<<<<<<< HEAD
 " requiered for vundle
 
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -74,6 +85,8 @@ Plugin 'tpope/vim-commentary'       " coment stuff out
 call vundle#end()        
 filetype plugin indent on
 
+=======
+>>>>>>> f70697b5202e4eeb395017c2524c0d635b732e2b
 
 
 "###############################
@@ -92,7 +105,8 @@ set expandtab           " Tab blir til space
 "   UI
 "###############################
 set number              " Vis linje nummer
-set relativenumber      " viser det relative linjenummeret
+set relativenumber     
+" viser det relative linjenummeret
 set showcmd             " Vis siste command i nedre jørne
 "set cursorline          " Highlight current line
 filetype indent on      " Laster inn filtype spesifikke indent ie. .vim/indent/python.vim blir lastet når en *.py fil blir åpnet
@@ -109,7 +123,7 @@ set incsearch           " Søk fortøpende mens karekterer blir lakt till
 set hlsearch            " Highlight matcer i søk
 
 " binner avmarkering fra søk til space
-"nnoremap <leader><space> :nohlsearch<CR>
+nnoremap <leader><space> :nohlsearch<CR>
 
 "   Folding
 " Når man kan 'klappe' sammen en fungsjon og ikke se den
@@ -163,16 +177,6 @@ nmap zw Zw
 nmap zn ZN
 nmap zp ZP
 
-" Toggels the undutree
-nnoremap <leader>u :UndotreeToggle<cr>
-
-
-" Toggels the tagBar
-nnoremap <leader>t :Tagbar<cr>
-
-" Toggels the undutree
-nnoremap <leader>n :NERDTreeToggle<cr>
-
 
 
 
@@ -206,29 +210,4 @@ set ttimeout ttimeoutlen=50
 "###############################
 " Plugin Settings
 "###############################
-
-" Spelunker
-set spelllang=en
-set spellfile=$HOME/Dropbox/Vim/spell/en.utf-8.add
-set nospell
-
-" Airline
-let g:airline#extensions#tabline#enabled = 1                " Togles the tab selection at the top of the screen
-
-let g:airline#extensions#tabline#formatter = 'unique_tail'      " The theme to use for the tabs  
-let g:airline_powerline_fonts = 1
-
-" NERDtree
-let NERDTreeIgnore=['\.$', '\~$']       " The files to ignore
-let NERDTreeShowBookmarks=1             " Shows the bookmarks
-
-
-
-
-
-
-
-
-
-
 
