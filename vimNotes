@@ -19,6 +19,10 @@ esc -  to commit changes
 
 
 
+-- window actions
+
+ 
+    
 
 
 
@@ -33,10 +37,6 @@ esc -  to commit changes
     Plugins
 ###############################
 
-@Suround 
-s - motion for suround
-foreksempel:
-cs") 
 
 @spelunker
 Zl - Correct word under cursor

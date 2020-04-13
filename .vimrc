@@ -148,7 +148,7 @@ imap <A-k> <Esc>ømz:m-2<cr>`za
 "vnoremap <leader>p ""p
 
 " makes /sertch case insensitive
-nnoremap / /\C
+"nnoremap / /\C
 
 " remaps the vhange window key to shift w insted of ctrl w
 nnoremap W <C-w>
@@ -237,7 +237,7 @@ let g:ctrlp_working_path_mode = 0
 "
 "
 " Snippets
-let g:UltiSnipsExpandTrigger="ó"
+let g:UltiSnipsExpandTrigger="<leader>e"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
