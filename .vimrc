@@ -16,8 +16,7 @@
 set nocompatible
 filetype off
 let mapleader=","
-set smartcase       " makes the / sertch case insensetive
-<<<<<<< HEAD
+
 set wildmenu
 set wildignorecase
 set wildmode=longest:full,full
@@ -29,17 +28,8 @@ set ignorecase
 set smartcase
 
 set wildignore+=*.pyc,*.o,*.obj,*.svn,*.swp,*.class,*.hg,*.DS_Store,*.min.*,*.meta
-=======
-"set wildmenu
-"set wildignorecase
-"set wildmode=longest:full,full
-set mouse=a
->>>>>>> f70697b5202e4eeb395017c2524c0d635b732e2b
 
-set ignorecase
-set smartcase
 
-set wildignore+=*.pyc,*.o,*.obj,*.svn,*.swp,*.class,*.hg,*.DS_Store,*.min.*,*.meta
 "###############################
 "   package management 
 "###############################
@@ -52,14 +42,8 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'       " requiered for vundle
 Plugin 'kamykn/spelunker.vim'         " spellcheking 
 Plugin 'mbbill/undotree'
-Plugin 'kien/ctrlp.vim'
 
 " Coding stuff
-Plugin 'valloric/youcompleteme'     " Autocomplete vim
-Plugin 'scrooloose/syntastic'       " Syntax highlighting 
-
-=======
-
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'valloric/youcompleteme'     " Autocomplete vim
 Plugin 'scrooloose/syntastic'       " Syntax highlighting 
@@ -258,7 +242,7 @@ let g:ctrlp_working_path_mode = 0
 "
 "
 " Snippets
-let g:UltiSnipsExpandTrigger="ó"
+let g:UltiSnipsExpandTrigger="<leader>e"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
