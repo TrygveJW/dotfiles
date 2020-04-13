@@ -16,16 +16,20 @@
 set nocompatible
 filetype off
 let mapleader=","
-set smartcase       " makes the / sertch case insensetive
-"set wildmenu
-"set wildignorecase
-"set wildmode=longest:full,full
+
+set wildmenu
+set wildignorecase
+set wildmode=longest:full,full
+
 set mouse=a
+
 
 set ignorecase
 set smartcase
 
 set wildignore+=*.pyc,*.o,*.obj,*.svn,*.swp,*.class,*.hg,*.DS_Store,*.min.*,*.meta
+
+
 "###############################
 "   package management 
 "###############################
@@ -39,6 +43,7 @@ Plugin 'VundleVim/Vundle.vim'       " requiered for vundle
 Plugin 'kamykn/spelunker.vim'         " spellcheking 
 Plugin 'mbbill/undotree'
 
+" Coding stuff
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'valloric/youcompleteme'     " Autocomplete vim
 Plugin 'scrooloose/syntastic'       " Syntax highlighting 
@@ -66,6 +71,7 @@ Plugin 'majutsushi/tagbar'          " Tag bar på siden
 "
 "" Motions
 "Plugin 'tpope/vim-surround'         " Surround stuff vim 
+
 "Plugin 'preservim/nerdcommenter'    " Comment out lines 
 Plugin 'tpope/vim-commentary'       " coment stuff out 
 "
@@ -75,7 +81,6 @@ Plugin 'tpope/vim-commentary'       " coment stuff out
 
 call vundle#end()        
 filetype plugin indent on
-
 
 
 "###############################
