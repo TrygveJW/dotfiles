@@ -153,7 +153,7 @@ imap <A-k> <Esc>ømz:m-2<cr>`za
 "vnoremap <leader>p ""p
 
 " makes /sertch case insensitive
-nnoremap / /\C
+"nnoremap / /\C
 
 " remaps the vhange window key to shift w insted of ctrl w
 nnoremap W <C-w>
