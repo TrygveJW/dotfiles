@@ -9,7 +9,7 @@ alias grep='grep --color=auto'
 alias ll='ls -alF'
 alias lg='ls -alF | grep -i'
 alias surf='surf -d'
-alias hh='history | grep -i'
+alias hh='history 1 | grep -i'
 
 # redirection
-alias top='htop'
+#alias top='htop'

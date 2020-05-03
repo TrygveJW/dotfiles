@@ -170,6 +170,29 @@ nmap zw Zw
 nmap zn ZN
 nmap zp ZP
 
+
+" Bracket expantion
+inoremap (      ()<Left>
+inoremap (<CR>  (<CR>)<Esc>O
+inoremap ((     (
+inoremap ()     ()
+
+
+inoremap {      {}<Left>
+inoremap {<CR>  {<CR>}<Esc>O
+inoremap {{     {
+inoremap {}     {}
+
+
+inoremap [      []<Left>
+inoremap [<CR>  [<CR>]<Esc>O
+inoremap [[     [
+inoremap []     []
+
+
+
+
+
 " Toggels the undutree
 nnoremap <leader>u :UndotreeToggle<cr>
 
@@ -213,7 +236,7 @@ set ttimeout ttimeoutlen=50
 "###############################
 " Plugin Settings
 "###############################
-
+let g:ycm_rust_src_path = '/home/trygve/.cargo/bin/rustc'
 " Spelunker
 set spelllang=en
 set spellfile=$HOME/Dropbox/Vim/spell/en.utf-8.add
@@ -238,9 +261,9 @@ let g:ctrlp_max_files = 0
 let g:ctrlp_working_path_mode = 0
 
 " YCME
-"
-"
-"
+nnoremap <leader>gd :YcmCompleter GetDoc<CR>
+
+
 " Snippets
 let g:UltiSnipsExpandTrigger="<leader>e"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
