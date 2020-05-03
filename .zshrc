@@ -57,3 +57,6 @@ man() {
     LESS_TERMCAP_us=$(printf "\e[1;32m") \
     man "$@"
 }
+
+# Adds the command not found install with 
+source /etc/zsh_command_not_found
