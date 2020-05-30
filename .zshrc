@@ -52,12 +52,16 @@ bashcompinit
 #source /etc/bash_completion
 
 # Zsh rust comletions
-
+#echo `#compdef cargo` > ~/.zfunc/_cargo
+#rustup completions zsh cargo >> ~/.zfunc/_cargo
 
 
 ifpath+=~/.zfunc
 
 
+
+# path stuff
+export PATH=~/.cargo/bin:$PATH
 #export PATH="/usr/local/cuda-9.0/bin:/home/trygve/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/trygve/.dotnet/tools:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/home/trygve/.vimpkg/bin"
 
 # DIV

@@ -40,20 +40,20 @@ call vundle#begin()
 
 " :PluginInstall for installing stuff
 Plugin 'VundleVim/Vundle.vim'       " requiered for vundle
-Plugin 'kamykn/spelunker.vim'         " spellcheking 
+"Plugin 'kamykn/spelunker.vim'         " spellcheking 
 Plugin 'mbbill/undotree'
 
 " Coding stuff
 Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'valloric/youcompleteme'     " Autocomplete vim
-Plugin 'scrooloose/syntastic'       " Syntax highlighting 
+"Plugin 'valloric/youcompleteme'     " Autocomplete vim
+"Plugin 'scrooloose/syntastic'       " Syntax highlighting 
 
 
 " Track the engine.
-Plugin 'SirVer/ultisnips'
+"Plugin 'SirVer/ultisnips'
 
 " Snippets are separated from the engine. Add this if you want them:
-Plugin 'honza/vim-snippets'
+"Plugin 'honza/vim-snippets'
 
 "" Git
 Plugin 'airblade/vim-gitgutter'     " Viser pluss og minus i margen på endringer fra siste commit
