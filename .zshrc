@@ -20,7 +20,10 @@ fi
 
 # COMPLETE
 autoload -Uz compinit
-compinit
+compinit -D
+
+# make zsh compleations sain again
+setopt BEEP NO_AUTOLIST BASH_AUTOLIST NO_MENUCOMPLETE
 
 # the default completeion stuff 
 zstyle ':completion:*' auto-description 'specify: %d'
@@ -31,7 +34,7 @@ zstyle ':completion:*' menu select=2
 eval "$(dircolors -b)"
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' list-colors ''
-zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
+#zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
 zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
 zstyle ':completion:*' menu select=long
 zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
@@ -40,6 +43,20 @@ zstyle ':completion:*' verbose true
 
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
+
+
+
+
+autoload bashcompinit
+bashcompinit
+#source /etc/bash_completion
+
+# Zsh rust comletions
+echo `#compdef cargo` > ~/.zfunc/_cargo
+rustup completions zsh cargo >> ~/.zfunc/_cargo
+
+ifpath+=~/.zfunc
+
 
 #export PATH="/usr/local/cuda-9.0/bin:/home/trygve/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/trygve/.dotnet/tools:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/home/trygve/.vimpkg/bin"
 
