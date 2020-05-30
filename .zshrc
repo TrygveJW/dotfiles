@@ -52,8 +52,8 @@ bashcompinit
 #source /etc/bash_completion
 
 # Zsh rust comletions
-echo `#compdef cargo` > ~/.zfunc/_cargo
-rustup completions zsh cargo >> ~/.zfunc/_cargo
+
+
 
 ifpath+=~/.zfunc
 
