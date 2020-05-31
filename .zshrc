@@ -23,7 +23,7 @@ autoload -Uz compinit
 compinit -D
 
 # make zsh compleations sain again
-setopt BEEP NO_AUTOLIST BASH_AUTOLIST NO_MENUCOMPLETE
+#setopt BEEP NO_AUTOLIST BASH_AUTOLIST NO_MENUCOMPLETE
 
 # the default completeion stuff 
 zstyle ':completion:*' auto-description 'specify: %d'
@@ -50,6 +50,10 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 autoload bashcompinit
 bashcompinit
 #source /etc/bash_completion
+
+
+setopt noautomenu
+setopt nomenucomplete
 
 # Zsh rust comletions
 #echo `#compdef cargo` > ~/.zfunc/_cargo
@@ -81,3 +85,13 @@ man() {
 
 # Adds the command not found install with 
 source /etc/zsh_command_not_found
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+fi
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
