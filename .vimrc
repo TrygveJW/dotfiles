@@ -146,8 +146,11 @@ imap <A-k> <Esc>ømz:m-2<cr>`za
 
 
 " endrer d til delete istedet for cut
-"nnoremap p "0p 
-"nnoremap <leader>p ""p
+nnoremap d "nd
+nnoremap <leader>d d
+
+"nnoremap p "pp 
+"nnoremap <leader>p "pp
 
 "vnoremap p "0p 
 "vnoremap <leader>p ""p
