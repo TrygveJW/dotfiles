@@ -1,74 +1,72 @@
-# PROMPT
-autoload -Uz promptinit
-promptinit
-prompt adam1
+
+#zmodload zsh/zprof
+# ============================================
+#                   options
+# ============================================
+
+export JAVA_HOME='/home/trygve/bin/jdk-14.0.1'
 
 # HISTORY
 HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=~/.zsh_history
 
-setopt histignorealldups sharehistory
-setopt appendhistory
+# run in vi mode when pressing esc
+bindkey -v 
 
-# ALIASESS
+bindkey '^r' history-incremental-search-backward
 
 
-if [ -f ~/.zsh_aliases ]; then
-    . ~/.zsh_aliases
+
+# ALIASESSJAVA_HOME='/home/trygve/bin/jdk-14.0.1'
+
+# ============================================
+#                   completion
+# ============================================
+
+fpath=(~/.zsh/completion $fpath)
+autoload -Uz compinit
+
+for dump in ~/.zcompdump(N.mh+24); do
+  compinit
+done
+
+compinit -C
+
+
+
+# ============================================
+#                   prompt
+# ============================================
+
+# PROMPT
+autoload -Uz promptinit
+promptinit
+prompt adam1
+
+
+# ============================================
+#                   Paths
+# ============================================
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
 fi
 
-# COMPLETE
-autoload -Uz compinit
-compinit -D
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
 
-# make zsh compleations sain again
-#setopt BEEP NO_AUTOLIST BASH_AUTOLIST NO_MENUCOMPLETE
-
-# the default completeion stuff 
-zstyle ':completion:*' auto-description 'specify: %d'
-zstyle ':completion:*' completer _expand _complete _correct _approximate
-zstyle ':completion:*' format 'Completing %d'
-zstyle ':completion:*' group-name ''
-zstyle ':completion:*' menu select=2
-eval "$(dircolors -b)"
-zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*' list-colors ''
-#zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
-zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
-zstyle ':completion:*' menu select=long
-zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
-zstyle ':completion:*' use-compctl false
-zstyle ':completion:*' verbose true
-
-zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
-zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
+# add rust cargo
+if [ -d "$HOME/.cargo/bin" ] ; then
+    PATH="$HOME/.cargo/bin:$PATH"
+fi
 
 
-
-
-autoload bashcompinit
-bashcompinit
-#source /etc/bash_completion
-
-
-setopt noautomenu
-setopt nomenucomplete
-
-# Zsh rust comletions
-#echo `#compdef cargo` > ~/.zfunc/_cargo
-#rustup completions zsh cargo >> ~/.zfunc/_cargo
-
-
-ifpath+=~/.zfunc
-
-
-
-# path stuff
-export PATH=~/.cargo/bin:$PATH
-#export PATH="/usr/local/cuda-9.0/bin:/home/trygve/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/trygve/.dotnet/tools:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/home/trygve/.vimpkg/bin"
-
-# DIV
+# ============================================
+#                   misc
+# ============================================
 
 # colloring man
 man() {
@@ -84,14 +82,31 @@ man() {
 }
 
 # Adds the command not found install with 
-source /etc/zsh_command_not_found
+#source /etc/zsh_command_not_found
 
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
+
+# ============================================
+#                   options
+# ============================================
+
+
+# load aliases if any
+if [ -f $HOME/.zsh/aliases.zsh ]; then
+    source $HOME/.zsh/aliases.zsh
 fi
 
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/.local/bin" ] ; then
-    PATH="$HOME/.local/bin:$PATH"
+# load functions if any
+if [ -f $HOME/.zsh/functions.sh ]; then
+    source $HOME/.zsh/functions.sh
 fi
+# load setopts if any
+if [ -f $HOME/.zsh/setopt.zsh ]; then
+    source $HOME/.zsh/setopt.zsh
+fi
+
+# load zsyles if any
+if [ -f $HOME/.zsh/zstyle.zsh ]; then
+    source $HOME/.zsh/zstyle.zsh
+fi
+
+#zprof

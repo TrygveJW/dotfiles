@@ -45,8 +45,8 @@ Plugin 'mbbill/undotree'
 
 " Coding stuff
 Plugin 'ctrlpvim/ctrlp.vim'
-"Plugin 'valloric/youcompleteme'     " Autocomplete vim
-"Plugin 'scrooloose/syntastic'       " Syntax highlighting 
+Plugin 'valloric/youcompleteme'     " Autocomplete vim
+Plugin 'scrooloose/syntastic'       " Syntax highlighting 
 
 
 " Track the engine.
