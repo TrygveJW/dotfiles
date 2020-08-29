@@ -45,6 +45,7 @@ setopt hist_ignore_dups         # duplicates are not saved in to history
 # ============================================
 setopt always_to_end            # if a word is completed whith the cursor inside the word the cursor is moved to the end of the completed word if one is found
 setopt complete_in_word         # Does not move the cursor to the end of the word when completing 
+setopt complete_aliases
 
 setopt BASH_AUTO_LIST                  # on ambigus completion list choises
 
