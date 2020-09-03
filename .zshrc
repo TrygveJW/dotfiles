@@ -4,7 +4,7 @@
 #                   options
 # ============================================
 
-export JAVA_HOME='/home/trygve/bin/jdk-14.0.1'
+export JAVA_HOME='/home/trygve/development/support_software/jdk-14.0.1'
 
 # HISTORY
 HISTSIZE=1000
@@ -82,7 +82,7 @@ man() {
 }
 
 # Adds the command not found install with 
-#source /etc/zsh_command_not_found
+source /etc/zsh_command_not_found
 
 
 # ============================================

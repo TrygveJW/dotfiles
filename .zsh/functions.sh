@@ -1,5 +1,20 @@
 
 
+function compress () {
+    tar cfv "${1}.tar.bz2" --use-compress-prog=pbzip2 $1
+
+#    if [[ -f "$1" ]]; then
+#        echo "q"
+#    elif [[ -d "$1" ]]; then 
+#        echo ""
+#    fi
+
+    #case "$1" in 
+     #   (zip)
+    return 0
+}
+
+
 # https://xgarrido.github.io/zsh-utilities/zsh-utilities-functions.html
 function extract ()
 {
@@ -42,7 +57,8 @@ function extract ()
                 || lzcat "$1" | tar xvf - ;;
             (*.tar) tar xvf "$1" ;;
             (*.gz) gunzip "$1" ;;
-            (*.bz2) bunzip2 "$1" ;;
+            #(*.bz2) bunzip2 "$1" ;;
+            (*.bz2) pbzip2 -d "$1" ;;
             (*.xz) unxz "$1" ;;
             (*.lzma) unlzma "$1" ;;
             (*.Z) uncompress "$1" ;;
@@ -70,3 +86,4 @@ function extract ()
     done
     return 0
 }
+
