@@ -3,6 +3,8 @@
 # ============================================
 #                   options
 # ============================================
+#http://zsh.sourceforge.net/Guide/zshguide06.html
+
 
 export JAVA_HOME='/home/trygve/development/support_software/jdk-14.0.1'
 
@@ -11,10 +13,8 @@ HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=~/.zsh_history
 
-# run in vi mode when pressing esc
-bindkey -v 
 
-bindkey '^r' history-incremental-search-backward
+
 
 
 
@@ -107,6 +107,11 @@ fi
 # load zsyles if any
 if [ -f $HOME/.zsh/zstyle.zsh ]; then
     source $HOME/.zsh/zstyle.zsh
+fi
+
+# load keybinds if any
+if [ -f $HOME/.zsh/key_bindings.zsh ]; then
+    source $HOME/.zsh/key_bindings.zsh
 fi
 
 #zprof

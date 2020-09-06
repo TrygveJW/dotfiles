@@ -45,13 +45,13 @@ setopt hist_ignore_dups         # duplicates are not saved in to history
 # ============================================
 setopt always_to_end            # if a word is completed whith the cursor inside the word the cursor is moved to the end of the completed word if one is found
 setopt complete_in_word         # Does not move the cursor to the end of the word when completing 
-setopt complete_aliases
+setopt no_complete_aliases      # wheter or not to allow completion of the content of aliases (that is if you have aliased a=git with complete_aliases true a<tab> yelds no git completions)
 
 setopt BASH_AUTO_LIST                  # on ambigus completion list choises
 
 # no horrible cycling behaviour
 setopt no_auto_menu             # use menu completion afte the second request for completion
-setopt menu_complete
+#setopt menu_complete
 
 setopt list_packed              # more compact listings
 

@@ -24,3 +24,8 @@ alias apts='apt-cache search'
 alias apti='sudo apt install'
 alias aptp='sudo apt purge'
 alias aptuu='sudo apt update && sudo apt upgrade -y'
+
+
+# load and change conf
+alias ezsh='vim $HOME/.zshrc'
+alias szsh='source $HOME/.zshrc'

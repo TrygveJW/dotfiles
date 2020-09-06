@@ -248,6 +248,12 @@ let g:spelunker_check_type = 2                              " Sets the spelling 
 
 
 " Airline
+
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline_symbols.space = "\ua0"
+
 let g:airline#extensions#tabline#enabled = 1                " Togles the tab selection at the top of the screen
 
 let g:airline#extensions#tabline#formatter = 'unique_tail'      " The theme to use for the tabs  
