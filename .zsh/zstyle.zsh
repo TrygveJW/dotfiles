@@ -9,7 +9,7 @@ zstyle ':completion:*' insert-tab false
 
 
 zstyle ':completion:*' insert-unambiguous true
-#zstyle ':completion:*' menu select=1 interactive
+zstyle ':completion:*' menu select=2 interactive
 
 zstyle ':completion:*' completer _expand _complete 
 

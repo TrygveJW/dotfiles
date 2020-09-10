@@ -6,7 +6,7 @@
 #http://zsh.sourceforge.net/Guide/zshguide06.html
 
 
-export JAVA_HOME='/home/trygve/development/support_software/jdk-14.0.1'
+export JAVA_HOME='/home/trygve/Development/support_software/jdk-14.0.1'
 
 # HISTORY
 HISTSIZE=1000
@@ -61,6 +61,11 @@ fi
 # add rust cargo
 if [ -d "$HOME/.cargo/bin" ] ; then
     PATH="$HOME/.cargo/bin:$PATH"
+fi
+
+# add rust cargo
+if [ -d "$HOME/Development/support_software/node-v14.10.0-linux-x64/bin" ] ; then
+    PATH="$HOME/Development/support_software/node-v14.10.0-linux-x64/bin:$PATH"
 fi
 
 
