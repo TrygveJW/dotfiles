@@ -16,7 +16,7 @@ HISTFILE=~/.zsh_history
 
 
 
-
+#http://zsh.sourceforge.net/Doc/Release/Completion-System.html
 
 # ALIASESSJAVA_HOME='/home/trygve/bin/jdk-14.0.1'
 
@@ -31,7 +31,19 @@ for dump in ~/.zcompdump(N.mh+24); do
   compinit
 done
 
-compinit -C
+#compinit -C
+
+autoload -U bashcompinit
+bashcompinit
+
+
+#if [ -f /usr/share/bash-completion/bash_completion ]; then
+#   source  /usr/share/bash-completion/bash_completion
+#elif [ -f /etc/bash_completion ]; then
+#   source  /etc/bash_completion
+#fi
+
+
 
 
 

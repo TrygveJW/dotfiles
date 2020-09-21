@@ -1,6 +1,7 @@
 # alias for the git dotfile stuff
 # https://www.atlassian.com/git/tutorials/dotfiles
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias cfg='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias cfgu='cfg commit -a -m "updates"'
 
 # add colors
 alias ls='ls --color=auto'

@@ -21,7 +21,7 @@ set wildmenu
 set wildignorecase
 set wildmode=longest:full,full
 
-set mouse=a
+"set mouse=a
 
 
 set ignorecase
