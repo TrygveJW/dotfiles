@@ -30,3 +30,10 @@ alias aptuu='sudo apt update && sudo apt upgrade -y'
 # load and change conf
 alias ezsh='vim $HOME/.zshrc'
 alias szsh='source $HOME/.zshrc'
+
+
+# docker
+dkr-sh(){
+    docker exec $1 -it /bin/bash
+}
+alias dkrc-up="docker-compose up --build -V"
