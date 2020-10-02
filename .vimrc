@@ -10,6 +10,55 @@
         " shift i to go to insert do changes(will not show up everywhere untill done)
 " press esc to commit changes
 " CarApple 
+
+
+
+
+
+"https://stevelosh.com/blog/2010/09/coming-home-to-vim/
+
+
+
+
+
+
+" let g:rust_use_custom_ctags_defs = 1  " if using rust.vim
+" let g:tagbar_type_rust = {
+"   \ 'ctagsbin' : '/path/to/your/universal/ctags',
+"   \ 'ctagstype' : 'rust',
+"   \ 'kinds' : [
+"       \ 'n:modules',
+"       \ 's:structures:1',
+"       \ 'i:interfaces',
+"       \ 'c:implementations',
+"       \ 'f:functions:1',
+"       \ 'g:enumerations:1',
+"       \ 't:type aliases:1:0',
+"       \ 'v:constants:1:0',
+"       \ 'M:macros:1',
+"       \ 'm:fields:1:0',
+"       \ 'e:enum variants:1:0',
+"       \ 'P:methods:1',
+"   \ ],
+"   \ 'sro': '::',
+"   \ 'kind2scope' : {
+"       \ 'n': 'module',
+"       \ 's': 'struct',
+"       \ 'i': 'interface',
+"       \ 'c': 'implementation',
+"       \ 'f': 'function',
+"       \ 'g': 'enum',
+"       \ 't': 'typedef',
+"       \ 'v': 'variable',
+"       \ 'M': 'macro',
+"       \ 'm': 'field',
+"       \ 'e': 'enumerator',
+"       \ 'P': 'method',
+"   \ },
+" \ }
+
+
+
 "###############################
 "   General settings
 "###############################
@@ -78,7 +127,7 @@ Plugin 'tpope/vim-commentary'       " coment stuff out
 "" Actions
 "Plugin 'vim-scripts/ReplaceWithRegister'       " Gives the possebilety for replacing a word with a register word with gr
 
-
+Plugin 'rust-lang/rust.vim'
 call vundle#end()        
 filetype plugin indent on
 
@@ -118,6 +167,9 @@ set hlsearch            " Highlight matcer i søk
 " binner avmarkering fra søk til space
 nnoremap <leader><space> :nohlsearch<CR>
 
+
+command Tnum set rnu!| set nu!
+command Src source $HOME/.vimrc
 "   Folding
 " Når man kan 'klappe' sammen en fungsjon og ikke se den
 " Tenke ikke æ har så super mye bruk for det egentlig
@@ -128,13 +180,13 @@ nnoremap <leader><space> :nohlsearch<CR>
 "###############################
 
 " beveger seg over visuelle linjer ikke vanlige
-
-" Rebinner gå til start ^ og slutt $ av linje til B(ginning) og E(nd)
 nnoremap B ^
 nnoremap E $
 
 onoremap B ^
 onoremap E $
+
+" Rebinner gå til start ^ og slutt $ av linje til B(ginning) og E(nd)
 
 nmap <A-j> mz:m+<cr>`z
 nmap <A-k> mz:m-2<cr>`z
@@ -151,6 +203,16 @@ nnoremap <leader>d d
 
 "nnoremap p "pp 
 "nnoremap <leader>p "pp
+
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
+
 
 "vnoremap p "0p 
 "vnoremap <leader>p ""p
@@ -277,10 +339,6 @@ nnoremap <leader>gd :YcmCompleter GetDoc<CR>
 let g:UltiSnipsExpandTrigger="<leader>e"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-
-
-
 
 
 

@@ -10,7 +10,7 @@ export JAVA_HOME='/home/trygve/Development/support_software/jdk-14.0.1'
 
 # HISTORY
 HISTSIZE=1000
-SAVEHIST=1000
+SAVEHIST=10000
 HISTFILE=~/.zsh_history
 
 
@@ -31,19 +31,28 @@ for dump in ~/.zcompdump(N.mh+24); do
   compinit
 done
 
-#compinit -C
+#compinit 
 
-autoload -U bashcompinit
-bashcompinit
+#autoload -U bashcompinit
+#bashcompinit
+
+bash_source() {
+  alias shopt=':'
+  alias _expand=_bash_expand
+  alias _complete=_bash_comp
+  emulate -L sh
+  setopt kshglob noshglob braceexpand
+
+  source "$@"
+}
+
+have() {
+  unset have
+  (( ${+commands[$1]} )) && have=yes
+}
 
 
-#if [ -f /usr/share/bash-completion/bash_completion ]; then
-#   source  /usr/share/bash-completion/bash_completion
-#elif [ -f /etc/bash_completion ]; then
-#   source  /etc/bash_completion
-#fi
-
-
+#bash_source '/usr/share/bash-completion/bash_completion' 
 
 
 
@@ -52,9 +61,10 @@ bashcompinit
 # ============================================
 
 # PROMPT
-autoload -Uz promptinit
+fpath=($HOME/.zsh/prompts $fpath)
+autoload -U promptinit
 promptinit
-prompt adam1
+prompt myadam
 
 
 # ============================================

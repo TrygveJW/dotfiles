@@ -48,7 +48,7 @@ setopt complete_in_word         # Does not move the cursor to the end of the wor
 setopt no_complete_aliases      # wheter or not to allow completion of the content of aliases (that is if you have aliased a=git with complete_aliases true a<tab> yelds no git completions)
 
 setopt AUTO_LIST
-#setopt BASH_AUTO_LIST                  # on ambigus completion list choises
+setopt BASH_AUTO_LIST                  # on ambigus completion list choises
 
 # no horrible cycling behaviour
 setopt no_auto_menu             # use menu completion afte the second request for completion
