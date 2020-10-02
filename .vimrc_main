@@ -1,0 +1,213 @@
+
+"###############################
+"   General 
+"###############################
+
+" Helps the plugins load corectly
+"filetype off
+"filetype plugin indent on   " allow filetype spesific indentation   
+
+syntax enable           " collors 
+
+set nocompatible        " Dont be vi compatible
+
+" Cange the mapleader to , insted of \
+let mapleader = ","
+
+set backspace=indent,eol,start
+set nowrap              " do not automaticly wrap on load 
+set formatoptions-=t    " do not automaticly wrap when typing
+
+" -- indent --
+set autoindent          " new lines inherit the parents indenting
+set copyindent    " copy the previous indentation on autoindenting
+set expandtab           " tabs are converted to spaces
+
+"todo: finn ut hva alle i bloken her jør definisjonene flyter litt over 
+set shiftround          " when shifting lines round to the neerest multiple of shift with
+set shiftwidth=4       
+
+" when tab is pressed a shiftwidth ammount of spaces are inserted on the start of the line,<bs> reduces by the same ammount
+set smarttab            
+
+
+
+"###############################
+"   tabs and indent stuff 
+"###############################
+
+"###############################
+"   UI
+"###############################
+set number              " show line number
+set relativenumber      " show relative nuber
+set showcmd             " show last command in the lower right corner
+
+set wildmenu            " Show autocomplete menue for commands 
+set wildignorecase      " ignores case when completing file names
+set wildmode=longest:full,full 
+set wildignore+=*.pyc,*.o,*.obj,*.svn,*.swp,*.class,*.hg,*.DS_Store,*.min.*,*.meta
+
+
+set scrolloff =10 
+
+set lazyredraw          " Only redraw when needed
+set showmatch           " Show matching ({[]})
+
+
+"###############################
+"   Navigation
+"###############################
+" set mose to work in a(ll) modes
+set mouse=a
+
+
+" while learing
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
+" go down by visual line not by line line
+"nnoremap j gj
+"nnoremap k gk
+
+
+" --- seartch --- "
+set incsearch           " Highlight seartch results as you type
+set hlsearch            " Highlight seartch results
+
+
+set ignorecase          " Ignore the case used 
+set smartcase           " Become case sensitive when any of the search letters are
+
+" remap the search to be case insensitive
+nnoremap / /\C
+
+
+"###############################
+"  Window/tab navigation
+"###############################
+
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
+
+"###############################
+"  Files and backup 
+"###############################
+
+
+set undofile            " write a undo file
+set nobackup            " no backup file is written
+set nowritebackup
+
+" Writes the backup and swap to the tmp dir
+set backupdir=/tmp//
+set directory=/tmp//
+set undodir=$HOME/.vim_undo//,/tmp/vim_undo//
+
+"###############################
+"   Window navigation
+"###############################
+
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+
+"###############################
+"   Vim key remaps
+"###############################
+
+" Q formats current selection
+vmap Q gq
+nmap Q gqap
+
+" 
+nnoremap <leader><space> :nohlsearch<CR>
+
+nnoremap B ^
+nnoremap E $
+
+onoremap B ^
+onoremap E $
+
+
+" https://vim.fandom.com/wiki/Moving_lines_up_or_down
+" allow for alt + jk to move lines ore blocks of selected lines up and down
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
+inoremap <A-j> <Esc>:m .+1<CR>==gi
+inoremap <A-k> <Esc>:m .-2<CR>==gi
+vnoremap <A-k> :m '<-2<CR>gv=gv
+vnoremap <A-j> :m '>+1<CR>gv=gv
+
+
+" -- copy paste --
+
+
+" make the leader + yank/paste use system clipboard
+nnoremap <leader>y  "+y
+vnoremap <leader>y  "+y
+nnoremap <leader>yy "+yy
+
+nnoremap <leader>p "+p
+vnoremap <leader>p "+p
+
+nnoremap <leader>d  "+d
+vnoremap <leader>d  "+d
+nnoremap <leader>dd "+dd
+
+nnoremap <leader>x  d
+nnoremap <leader>xx dd
+
+
+
+" make d delete not cut
+nnoremap dd  "_dd
+nnoremap d   "_d
+
+
+
+"###############################
+"   Command remaps
+"###############################
+
+command Tnum  :set rnu!| set nu!
+command Src   :source $HOME/.vimrc
+
+command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
+command WQ :execute ':silent w !sudo tee % > /dev/null' | :quit!
+
+
+
+"###############################
+"   misc
+"###############################
+
+" make the alt key translate to <a-key> 
+
+let c='a'
+while c <= 'z'
+  exec "set <A-".c.">=\e".c
+  exec "imap \e".c." <A-".c.">"
+  let c = nr2char(1+char2nr(c))
+endw
+
+set ttimeout ttimeoutlen=50
+
+
+
+"###############################
+"   load file
+"###############################
+
+
+

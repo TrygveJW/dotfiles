@@ -1,0 +1,23 @@
+
+
+
+"###############################
+"   package management 
+"###############################
+filetype off
+
+set surround
+set commentary
+set ReplaceWithRegister
+set exchange
+
+
+
+
+
+
+try 
+  source ~/.vimrc_main
+catch
+  " No such file? No problem; just ignore it.
+endtry 

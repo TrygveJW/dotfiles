@@ -1,94 +1,15 @@
-":PluginClean Trygve-Woldseth 
-" Brukt guide > https://dougblack.io/words/a-good-vimrc.html
-
-" spellcheck in vim add maybe switch to nvim
-" http://thejakeharding.com/tutorial/2012/06/13/using-spell-check-in-vim.html
-
-" notes:
-" edit over multiple lines 
-" ctrl-v to go to visual mode, select lines
-        " shift i to go to insert do changes(will not show up everywhere untill done)
-" press esc to commit changes
-" CarApple 
-
-
-
-
-
-"https://stevelosh.com/blog/2010/09/coming-home-to-vim/
-
-
-
-
-
-
-" let g:rust_use_custom_ctags_defs = 1  " if using rust.vim
-" let g:tagbar_type_rust = {
-"   \ 'ctagsbin' : '/path/to/your/universal/ctags',
-"   \ 'ctagstype' : 'rust',
-"   \ 'kinds' : [
-"       \ 'n:modules',
-"       \ 's:structures:1',
-"       \ 'i:interfaces',
-"       \ 'c:implementations',
-"       \ 'f:functions:1',
-"       \ 'g:enumerations:1',
-"       \ 't:type aliases:1:0',
-"       \ 'v:constants:1:0',
-"       \ 'M:macros:1',
-"       \ 'm:fields:1:0',
-"       \ 'e:enum variants:1:0',
-"       \ 'P:methods:1',
-"   \ ],
-"   \ 'sro': '::',
-"   \ 'kind2scope' : {
-"       \ 'n': 'module',
-"       \ 's': 'struct',
-"       \ 'i': 'interface',
-"       \ 'c': 'implementation',
-"       \ 'f': 'function',
-"       \ 'g': 'enum',
-"       \ 't': 'typedef',
-"       \ 'v': 'variable',
-"       \ 'M': 'macro',
-"       \ 'm': 'field',
-"       \ 'e': 'enumerator',
-"       \ 'P': 'method',
-"   \ },
-" \ }
-
-
-
-"###############################
-"   General settings
-"###############################
-set nocompatible
-filetype off
-let mapleader=","
-
-set wildmenu
-set wildignorecase
-set wildmode=longest:full,full
-
-"set mouse=a
-
-
-set ignorecase
-set smartcase
-
-set wildignore+=*.pyc,*.o,*.obj,*.svn,*.swp,*.class,*.hg,*.DS_Store,*.min.*,*.meta
 
 
 "###############################
 "   package management 
 "###############################
 " requiered for vundle
-
+filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" :PluginInstall for installing stuff
 Plugin 'VundleVim/Vundle.vim'       " requiered for vundle
+
 "Plugin 'kamykn/spelunker.vim'         " spellcheking 
 Plugin 'mbbill/undotree'
 
@@ -119,143 +40,28 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'majutsushi/tagbar'          " Tag bar på siden
 "
 "" Motions
-"Plugin 'tpope/vim-surround'         " Surround stuff vim 
+Plugin 'tpope/vim-surround'         " Surround stuff vim 
 
 "Plugin 'preservim/nerdcommenter'    " Comment out lines 
 Plugin 'tpope/vim-commentary'       " coment stuff out 
 "
 "" Actions
-"Plugin 'vim-scripts/ReplaceWithRegister'       " Gives the possebilety for replacing a word with a register word with gr
+Plugin 'vim-scripts/ReplaceWithRegister'       " Gives the possebilety for replacing a word with a register word with gr
 
 Plugin 'rust-lang/rust.vim'
 call vundle#end()        
 filetype plugin indent on
 
 
-"###############################
-"   Farger 
-"###############################
-syntax enable
+try 
+  source ~/.vimrc_main
+catch
+  " No such file? No problem; just ignore it.
+endtry 
 
 "###############################
-"   Tab og space
+"  plugin keemaps 
 "###############################
-set tabstop=4           " Antall visuelle space for hver tab
-set softtabstop=4       " Antall space som en tab blir byttet ut med
-set expandtab           " Tab blir til space
-
-"###############################
-"   UI
-"###############################
-set number              " Vis linje nummer
-set relativenumber      " viser det relative linjenummeret
-set showcmd             " Vis siste command i nedre jørne
-"set cursorline          " Highlight current line
-filetype indent on      " Laster inn filtype spesifikke indent ie. .vim/indent/python.vim blir lastet når en *.py fil blir åpnet
-set wildmenu            " Visuel autocomplete for command menyen
-set lazyredraw          " Tegn kunn sjermen på nytt når det trengs (ikke midt i macros ol)
-set showmatch           " Marker matchende ({[]})
-
-
-
-"###############################
-"   Søk
-"###############################
-set incsearch           " Søk fortøpende mens karekterer blir lakt till
-set hlsearch            " Highlight matcer i søk
-
-" binner avmarkering fra søk til space
-nnoremap <leader><space> :nohlsearch<CR>
-
-
-command Tnum set rnu!| set nu!
-command Src source $HOME/.vimrc
-"   Folding
-" Når man kan 'klappe' sammen en fungsjon og ikke se den
-" Tenke ikke æ har så super mye bruk for det egentlig
-
-
-"###############################
-" Key Remaps 
-"###############################
-
-" beveger seg over visuelle linjer ikke vanlige
-nnoremap B ^
-nnoremap E $
-
-onoremap B ^
-onoremap E $
-
-" Rebinner gå til start ^ og slutt $ av linje til B(ginning) og E(nd)
-
-nmap <A-j> mz:m+<cr>`z
-nmap <A-k> mz:m-2<cr>`z
-vmap <A-j> :m'>+<cr>`<my`>mzgv`yo`z
-vmap <A-k> :m'<-2<cr>`>my`<mzgv`yo`z
-
-imap <A-j> <Esc>ømz:m+<cr>`za
-imap <A-k> <Esc>ømz:m-2<cr>`za
-
-
-" endrer d til delete istedet for cut
-nnoremap d "nd
-nnoremap <leader>d d
-
-"nnoremap p "pp 
-"nnoremap <leader>p "pp
-
-nnoremap <up> <nop>
-nnoremap <down> <nop>
-nnoremap <left> <nop>
-nnoremap <right> <nop>
-inoremap <up> <nop>
-inoremap <down> <nop>
-inoremap <left> <nop>
-inoremap <right> <nop>
-
-
-"vnoremap p "0p 
-"vnoremap <leader>p ""p
-
-" makes /sertch case insensitive
-"nnoremap / /\C
-
-" remaps the vhange window key to shift w insted of ctrl w
-nnoremap W <C-w>
-
-"   Plugin remaps 
-
-" Spelunker
-" remaps the correct word key to the default vim
-
-nmap zl Zl
-nmap zg Zg
-nmap zw Zw
-
-nmap zn ZN
-nmap zp ZP
-
-
-" Bracket expantion
-inoremap (      ()<Left>
-inoremap (<CR>  (<CR>)<Esc>O
-inoremap ((     (
-inoremap ()     ()
-
-
-inoremap {      {}<Left>
-inoremap {<CR>  {<CR>}<Esc>O
-inoremap {{     {
-inoremap {}     {}
-
-
-inoremap [      []<Left>
-inoremap [<CR>  [<CR>]<Esc>O
-inoremap [[     [
-inoremap []     []
-
-
-
 
 
 " Toggels the undutree
@@ -267,31 +73,6 @@ nnoremap <leader>t :Tagbar<cr>
 
 " Toggels the undutree
 nnoremap <leader>n :NERDTreeToggle<cr>
-
-
-
-
-
-
-
-
-"###############################
-" Leader Shortcuts
-"###############################
-let c='a'
-while c <= 'z'
-  exec "set <A-".c.">=\e".c
-  exec "imap \e".c." <A-".c.">"
-  let c = nr2char(1+char2nr(c))
-endw
-
-set ttimeout ttimeoutlen=50
-
-
-
-
-
-
 
 
 
