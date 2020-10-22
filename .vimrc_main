@@ -59,7 +59,7 @@ set showmatch           " Show matching ({[]})
 "   Navigation
 "###############################
 " set mose to work in a(ll) modes
-set mouse=a
+"set mouse=a
 
 
 " while learing
@@ -69,12 +69,14 @@ nnoremap <left> <nop>
 nnoremap <right> <nop>
 inoremap <up> <nop>
 inoremap <down> <nop>
-inoremap <left> <nop>
-inoremap <right> <nop>
-" go down by visual line not by line line
+" inoremap <left> <nop>
+" inoremap <right> <nop>
+" " go down by visual line not by line line
 "nnoremap j gj
 "nnoremap k gk
 
+nnoremap <S-Left> :tabprev<CR>
+nnoremap <S-Right> :tabnext<CR>
 
 " --- seartch --- "
 set incsearch           " Highlight seartch results as you type
@@ -97,7 +99,8 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
-
+set splitbelow
+set splitright
 "###############################
 "  Files and backup 
 "###############################
@@ -116,10 +119,10 @@ set undodir=$HOME/.vim_undo//,/tmp/vim_undo//
 "   Window navigation
 "###############################
 
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
+" nnoremap <C-h> <C-w>h
+" nnoremap <C-j> <C-w>j
+" nnoremap <C-k> <C-w>k
+" nnoremap <C-l> <C-w>l
 
 
 "###############################
@@ -142,16 +145,16 @@ onoremap E $
 
 " https://vim.fandom.com/wiki/Moving_lines_up_or_down
 " allow for alt + jk to move lines ore blocks of selected lines up and down
-nnoremap <A-j> :m .+1<CR>==
-nnoremap <A-k> :m .-2<CR>==
-inoremap <A-j> <Esc>:m .+1<CR>==gi
-inoremap <A-k> <Esc>:m .-2<CR>==gi
-vnoremap <A-k> :m '<-2<CR>gv=gv
-vnoremap <A-j> :m '>+1<CR>gv=gv
+nnoremap <A-j> :m.+1<CR>==
+nnoremap <A-k> :m.-2<CR>==
+inoremap <A-j> <Esc>:m.+1<CR>==gi
+inoremap <A-k> <Esc>:m.-2<CR>==gi
+vnoremap <A-k> :m'<-2<CR>gv=gv
+vnoremap <A-j> :m'>+1<CR>gv=gv
 
 
 " -- copy paste --
-
+  
 
 " make the leader + yank/paste use system clipboard
 nnoremap <leader>y  "+y
@@ -171,8 +174,8 @@ nnoremap <leader>xx dd
 
 
 " make d delete not cut
-nnoremap dd  "_dd
-nnoremap d   "_d
+" nnoremap dd  "_dd
+" nnoremap d   "_d
 
 
 

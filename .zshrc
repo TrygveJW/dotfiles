@@ -25,13 +25,19 @@ HISTFILE=~/.zsh_history
 # ============================================
 
 fpath=(~/.zsh/completion $fpath)
+
+
+# add completions
+if [ -d "$HOME/.zsh/completion/" ] ; then
+    fpath+="$HOME/.zsh/completion"
+fi
+
 autoload -Uz compinit
 
 for dump in ~/.zcompdump(N.mh+24); do
-  compinit
+    compinit
 done
 
-#compinit 
 
 #autoload -U bashcompinit
 #bashcompinit
