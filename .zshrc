@@ -8,6 +8,10 @@
 
 export JAVA_HOME='/home/trygve/Development/support_software/jdk-14.0.1'
 
+
+export CHROME_EXECUTABLE='/snap/bin/chromium'
+
+
 # HISTORY
 HISTSIZE=1000
 SAVEHIST=10000
