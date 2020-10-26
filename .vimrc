@@ -93,10 +93,7 @@ nnoremap <leader>n :NERDTreeToggle<cr>
 " Plugin Settings
 "###############################
 
-" let g:easytags_async = 1
 
-
-" let g:easytags_suppress_ctags_warning = 1
 
 
 let g:rainbow_active = 1
@@ -138,9 +135,13 @@ let NERDTreeShowBookmarks=1             " Shows the bookmarks
 let g:ctrlp_max_files = 0
 " Search from current directory instead of project root
 let g:ctrlp_working_path_mode = 0
-nnoremap <C-@> :CtrlPTag<CR>
+nnoremap <S-@> :CtrlPTag<CR>
 " YCME
+
+nnoremap gd :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>gd :YcmCompleter GetDoc<CR>
+
+
 let g:ycm_rust_src_path = '/home/trygve/.cargo/bin/rustc'
 
     

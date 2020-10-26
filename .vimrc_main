@@ -75,8 +75,6 @@ inoremap <down> <nop>
 "nnoremap j gj
 "nnoremap k gk
 
-nnoremap <S-Left> :tabprev<CR>
-nnoremap <S-Right> :tabnext<CR>
 
 " --- seartch --- "
 set incsearch           " Highlight seartch results as you type
@@ -86,14 +84,17 @@ set hlsearch            " Highlight seartch results
 set ignorecase          " Ignore the case used 
 set smartcase           " Become case sensitive when any of the search letters are
 
-" remap the search to be case insensitive
-nnoremap / /\C
+" Make leader search be normal sane regex search
+nnoremap <leader>/ /\v
+nnoremap <leader>? ?\v
+
 
 
 "###############################
 "  Window/tab navigation
 "###############################
 
+" navigate windows with ctrl + hjkl dir
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
@@ -101,6 +102,28 @@ map <C-l> <C-w>l
 
 set splitbelow
 set splitright
+
+" navigate tabs with ctrl + arrow key left/right
+nnoremap <S-Left> :tabprev<CR>
+nnoremap <S-Right> :tabnext<CR>
+
+
+" navigate up and down jumplist with shift + up/down
+nnoremap <S-up> <C-I>
+nnoremap <S-down> <C-I>
+
+
+
+"###############################
+"  buffers
+"###############################
+
+set hidden              " alow buffers to be hidden insted of closed when opening new 
+
+
+" alt-tab between last active buffer
+nnoremap <leader>bb <C-^>
+
 "###############################
 "  Files and backup 
 "###############################
@@ -114,16 +137,6 @@ set nowritebackup
 set backupdir=/tmp//
 set directory=/tmp//
 set undodir=$HOME/.vim_undo//,/tmp/vim_undo//
-
-"###############################
-"   Window navigation
-"###############################
-
-" nnoremap <C-h> <C-w>h
-" nnoremap <C-j> <C-w>j
-" nnoremap <C-k> <C-w>k
-" nnoremap <C-l> <C-w>l
-
 
 "###############################
 "   Vim key remaps
@@ -168,8 +181,6 @@ nnoremap <leader>d  "+d
 vnoremap <leader>d  "+d
 nnoremap <leader>dd "+dd
 
-nnoremap <leader>x  d
-nnoremap <leader>xx dd
 
 
 
@@ -186,8 +197,9 @@ nnoremap <leader>xx dd
 command Tnum  :set rnu!| set nu!
 command Src   :source $HOME/.vimrc
 
-command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
-command WQ :execute ':silent w !sudo tee % > /dev/null' | :quit!
+command SW :execute ':silent w !sudo tee % > /dev/null' | :edit!
+command SQ :execute ':silent w !sudo tee % > /dev/null' | :quit!
+command SQ :qa!
 
 
 
@@ -208,9 +220,6 @@ set ttimeout ttimeoutlen=50
 
 
 
-"###############################
-"   load file
-"###############################
 
 
 
