@@ -3,6 +3,10 @@
 alias cfg='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias cfgu='cfg commit -a -m "updates"'
 
+# vim
+alias vim="gnome-terminal --window-with-profile=vim -- vim"
+
+
 # add colors
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
@@ -30,6 +34,16 @@ alias aptuu='sudo apt update && sudo apt upgrade -y'
 # load and change conf
 alias ezsh='vim $HOME/.zshrc'
 alias szsh='source $HOME/.zshrc'
+
+# python        
+spytonenv(){
+    if [[ "$1" == "" ]]; then
+        dir="venv"
+    else
+        dir="$1"
+    fi
+    source "$dir"/bin/activate
+}
 
 
 # docker

@@ -29,9 +29,14 @@ prompt_myadam_precmd () {
     space_left=$(( $COLUMNS - $#base_prompt_expanded_no_color - 2 ))
     path_prompt="%B%F{$prompt_myadam_color3}%${space_left}<...<%~$prompt_newline%F{white}"
   fi
-  PS1="$base_prompt$path_prompt %# $post_prompt"
-  PS2="$base_prompt$path_prompt %_> $post_prompt"
-  PS3="$base_prompt$path_prompt ?# $post_prompt"
+  if [[ -v VIRTUAL_ENV ]]; then
+    envTag="(venv) "
+  else 
+    envTag=""
+  fi
+  PS1="$envTag$base_prompt$path_prompt %# $post_prompt"
+  PS2="$envTag$base_prompt$path_prompt %_> $post_prompt"
+  PS3="$envTag$base_prompt$path_prompt ?# $post_prompt"
 }
 
 prompt_myadam_setup "$@"

@@ -6,7 +6,11 @@
 #http://zsh.sourceforge.net/Guide/zshguide06.html
 
 
-export JAVA_HOME='/home/trygve/Development/support_software/jdk-14.0.1'
+export JAVA_HOME='/home/trygve/Development/support_software/jdk1.8.0_271' 
+
+
+export CHROME_EXECUTABLE='/snap/bin/chromium'
+
 
 # HISTORY
 HISTSIZE=1000
@@ -25,13 +29,19 @@ HISTFILE=~/.zsh_history
 # ============================================
 
 fpath=(~/.zsh/completion $fpath)
+
+
+# add completions
+if [ -d "$HOME/.zsh/completion/" ] ; then
+    fpath+="$HOME/.zsh/completion"
+fi
+
 autoload -Uz compinit
 
 for dump in ~/.zcompdump(N.mh+24); do
-  compinit
+    compinit
 done
 
-#compinit 
 
 #autoload -U bashcompinit
 #bashcompinit
@@ -85,11 +95,15 @@ if [ -d "$HOME/.cargo/bin" ] ; then
     PATH="$HOME/.cargo/bin:$PATH"
 fi
 
-# add rust cargo
+# add node 
 if [ -d "$HOME/Development/support_software/node-v14.10.0-linux-x64/bin" ] ; then
     PATH="$HOME/Development/support_software/node-v14.10.0-linux-x64/bin:$PATH"
 fi
 
+# add go
+if [ -d "$HOME/Development/support_software/go" ] ; then
+    PATH="$HOME/Development/support_software/go/bin:$PATH"
+fi
 
 # ============================================
 #                   misc

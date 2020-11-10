@@ -59,7 +59,7 @@ set showmatch           " Show matching ({[]})
 "   Navigation
 "###############################
 " set mose to work in a(ll) modes
-set mouse=a
+"set mouse=a
 
 
 " while learing
@@ -69,9 +69,9 @@ nnoremap <left> <nop>
 nnoremap <right> <nop>
 inoremap <up> <nop>
 inoremap <down> <nop>
-inoremap <left> <nop>
-inoremap <right> <nop>
-" go down by visual line not by line line
+" inoremap <left> <nop>
+" inoremap <right> <nop>
+" " go down by visual line not by line line
 "nnoremap j gj
 "nnoremap k gk
 
@@ -84,19 +84,45 @@ set hlsearch            " Highlight seartch results
 set ignorecase          " Ignore the case used 
 set smartcase           " Become case sensitive when any of the search letters are
 
-" remap the search to be case insensitive
-nnoremap / /\C
+" Make leader search be normal sane regex search
+nnoremap <leader>/ /\v
+nnoremap <leader>? ?\v
+
 
 
 "###############################
 "  Window/tab navigation
 "###############################
 
+" navigate windows with ctrl + hjkl dir
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
+set splitbelow
+set splitright
+
+" navigate tabs with ctrl + arrow key left/right
+nnoremap <S-Left> :tabprev<CR>
+nnoremap <S-Right> :tabnext<CR>
+
+
+" navigate up and down jumplist with shift + up/down
+nnoremap <S-up> <C-I>
+nnoremap <S-down> <C-I>
+
+
+
+"###############################
+"  buffers
+"###############################
+
+set hidden              " alow buffers to be hidden insted of closed when opening new 
+
+
+" alt-tab between last active buffer
+nnoremap <leader>bb <C-^>
 
 "###############################
 "  Files and backup 
@@ -111,16 +137,6 @@ set nowritebackup
 set backupdir=/tmp//
 set directory=/tmp//
 set undodir=$HOME/.vim_undo//,/tmp/vim_undo//
-
-"###############################
-"   Window navigation
-"###############################
-
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-
 
 "###############################
 "   Vim key remaps
@@ -142,16 +158,16 @@ onoremap E $
 
 " https://vim.fandom.com/wiki/Moving_lines_up_or_down
 " allow for alt + jk to move lines ore blocks of selected lines up and down
-nnoremap <A-j> :m .+1<CR>==
-nnoremap <A-k> :m .-2<CR>==
-inoremap <A-j> <Esc>:m .+1<CR>==gi
-inoremap <A-k> <Esc>:m .-2<CR>==gi
-vnoremap <A-k> :m '<-2<CR>gv=gv
-vnoremap <A-j> :m '>+1<CR>gv=gv
+nnoremap <A-j> :m.+1<CR>==
+nnoremap <A-k> :m.-2<CR>==
+inoremap <A-j> <Esc>:m.+1<CR>==gi
+inoremap <A-k> <Esc>:m.-2<CR>==gi
+vnoremap <A-k> :m'<-2<CR>gv=gv
+vnoremap <A-j> :m'>+1<CR>gv=gv
 
 
 " -- copy paste --
-
+  
 
 " make the leader + yank/paste use system clipboard
 nnoremap <leader>y  "+y
@@ -165,15 +181,21 @@ nnoremap <leader>d  "+d
 vnoremap <leader>d  "+d
 nnoremap <leader>dd "+dd
 
-nnoremap <leader>x  d
-nnoremap <leader>xx dd
 
 
 
 " make d delete not cut
-nnoremap dd  "_dd
-nnoremap d   "_d
+" nnoremap dd  "_dd
+" nnoremap d   "_d
 
+
+"###############################
+"   Folding 
+"###############################
+set foldmethod=syntax   
+set foldnestmax=10
+set nofoldenable
+set foldlevel=2
 
 
 "###############################
@@ -183,8 +205,15 @@ nnoremap d   "_d
 command Tnum  :set rnu!| set nu!
 command Src   :source $HOME/.vimrc
 
-command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
-command WQ :execute ':silent w !sudo tee % > /dev/null' | :quit!
+command SW :execute ':silent w !sudo tee % > /dev/null' | :edit!
+command SQ :execute ':silent w !sudo tee % > /dev/null' | :quit!
+command SQ :qa!
+
+
+"###############################
+"   personal maps
+"###############################
+nnoremap <leader>df diwda(
 
 
 
@@ -205,9 +234,6 @@ set ttimeout ttimeoutlen=50
 
 
 
-"###############################
-"   load file
-"###############################
 
 
 
