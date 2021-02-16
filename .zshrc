@@ -1,12 +1,12 @@
 
-#zmodload zsh/zprof
+# zmodload zsh/zprof
 # ============================================
 #                   options
 # ============================================
 #http://zsh.sourceforge.net/Guide/zshguide06.html
 
 
-export JAVA_HOME='/home/trygve/Development/support_software/jdk-15' 
+export JAVA_HOME='/home/trygve/Development/support_software/jdk-14.0.1' 
 
 
 export CHROME_EXECUTABLE='/snap/bin/chromium'
@@ -39,7 +39,7 @@ fi
 autoload -Uz compinit
 
 for dump in ~/.zcompdump(N.mh+24); do
-    compinit
+    compinit -D
 done
 
 
@@ -155,4 +155,4 @@ if [ -f $HOME/.zsh/key_bindings.zsh ]; then
     source $HOME/.zsh/key_bindings.zsh
 fi
 
-#zprof
+# zprof
