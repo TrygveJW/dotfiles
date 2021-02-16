@@ -1,5 +1,20 @@
 
 
+function pargrep (){
+    if [[ "$1" == "" ]]; then
+        echo "Usage: pargrep  PATTERN [FILE]..."
+        echo
+        echo "prints the paragraph containing pattern"
+        echo
+    else
+        awk 'BEGIN{RS=ORS="\n\n";FS=OFS="\n"}/'$1'/'
+    fi
+
+
+
+}
+
+
 function compress () {
     tar cfv "${1}.tar.bz2" --use-compress-prog=pbzip2 $1
 

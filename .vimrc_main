@@ -59,7 +59,7 @@ set showmatch           " Show matching ({[]})
 "   Navigation
 "###############################
 " set mose to work in a(ll) modes
-"set mouse=a
+set mouse=a
 
 
 " while learing
@@ -136,7 +136,7 @@ set nowritebackup
 " Writes the backup and swap to the tmp dir
 set backupdir=/tmp//
 set directory=/tmp//
-set undodir=$HOME/.vim_undo//,/tmp/vim_undo//
+set undodir=$HOME/.vim/undo_files//,/tmp/vim_undo//
 
 "###############################
 "   Vim key remaps
@@ -207,7 +207,7 @@ command Src   :source $HOME/.vimrc
 
 command SW :execute ':silent w !sudo tee % > /dev/null' | :edit!
 command SQ :execute ':silent w !sudo tee % > /dev/null' | :quit!
-command SQ :qa!
+" command SQ :qa!
 
 
 "###############################
@@ -222,11 +222,10 @@ nnoremap <leader>df diwda(
 "###############################
 
 " make the alt key translate to <a-key> 
-
 let c='a'
 while c <= 'z'
-  exec "set <A-".c.">=\e".c
-  exec "imap \e".c." <A-".c.">"
+  exec "set <A-".c.">=".c
+  exec "imap ".c." <A-".c.">"
   let c = nr2char(1+char2nr(c))
 endw
 

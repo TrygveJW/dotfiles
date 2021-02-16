@@ -6,8 +6,8 @@ set meta-flag on
 set input-meta on
 
 # Turnes off 8--th bit stripping
-set convert-meta off
-set output-meta on
+set convert-meta on
+set output-meta off
 
 # do not bell on tab-completion
 set bell-style none

@@ -1,4 +1,4 @@
-
+echom "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
 
 "###############################
 "   package management 
@@ -11,7 +11,7 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'           " packet manager
 
-"Plugin 'kamykn/spelunker.vim'         " spellcheking 
+Plugin 'kamykn/spelunker.vim'         " spellcheking 
 
 Plugin 'ctrlpvim/ctrlp.vim'             " fuzzy finder
 Plugin 'valloric/youcompleteme'         " Autocomplete vim
@@ -63,9 +63,11 @@ call vundle#end()
 filetype plugin indent on
 
 
+  source $HOME/.vimrc_main
 try 
-  source ~/.vimrc_main
+  " source $HOME/.vimrc_main
 catch
+    echom "ERROR READING .vimrc_main"
   " No such file? No problem; just ignore it.
 endtry 
 
@@ -95,6 +97,12 @@ nnoremap <leader>n :NERDTreeToggle<cr>
 
 
 
+" Gutentags
+let g:gutentags_cache_dir = "$HOME/.vim/gutentags_tags/"
+let g:gutentags_exclude_filetypes = ['*.xml', ]
+
+
+
 
 let g:rainbow_active = 1
 
@@ -106,6 +114,7 @@ colorscheme solarized
 " Spelunker
 set spelllang=en
 set spellfile=$HOME/Dropbox/Vim/spell/en.utf-8.add
+
 set nospell
 let g:spelunker_check_type = 2                              " Sets the spelling chek to only chek words in buffer(open files)
 

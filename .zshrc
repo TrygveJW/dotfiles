@@ -6,7 +6,7 @@
 #http://zsh.sourceforge.net/Guide/zshguide06.html
 
 
-export JAVA_HOME='/home/trygve/Development/support_software/jdk1.8.0_271' 
+export JAVA_HOME='/home/trygve/Development/support_software/jdk-15' 
 
 
 export CHROME_EXECUTABLE='/snap/bin/chromium'

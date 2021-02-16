@@ -8,9 +8,9 @@ filetype off
 
 
 set surround
+set exchange
 set commentary
 set ReplaceWithRegister
-set exchange
 
 
 
@@ -20,4 +20,12 @@ try
   source ~/.vimrc_main
 catch
   " No such file? No problem; just ignore it.
-endtry 
+endtry
+
+
+vnoremap <A-j> :action MoveLineDown<CR>
+vnoremap <A-k> :action MoveLineUp<CR>
+nnoremap <A-j> :action MoveLineDown<CR>
+nnoremap <A-k> :action MoveLineUp<CR>
+inoremap <A-j> <ESC>:action MoveLineDown<CR>gi
+inoremap <A-k> <ESC>:action MoveLineUp<CR>gi
