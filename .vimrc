@@ -1,4 +1,3 @@
-echom "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
 
 "###############################
 "   package management 
@@ -98,7 +97,7 @@ nnoremap <leader>n :NERDTreeToggle<cr>
 
 
 " Gutentags
-let g:gutentags_cache_dir = "$HOME/.vim/gutentags_tags/"
+let g:gutentags_cache_dir = "~/.vim/gutentags_tags/"
 let g:gutentags_exclude_filetypes = ['*.xml', ]
 
 
