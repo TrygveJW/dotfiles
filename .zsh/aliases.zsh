@@ -3,8 +3,7 @@
 alias cfg='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias cfgu='cfg commit -a -m "updates"'
 
-# vim
-alias vim="gnome-terminal --window-with-profile=vim -- vim"
+
 
 
 # add colors
@@ -51,3 +50,14 @@ dkr-sh(){
     docker exec $1 -it /bin/bash
 }
 alias dkrc-up="docker-compose up --build -V"
+
+
+# OS spesific aliases
+if [[ "$XDG_CURRENT_DESKTOP" == "KDE" ]]; then
+alias vim="gnome-terminal --window-with-profile=vim -- vim"
+
+
+elif [[ "$XDG_CURRENT_DESKTOP" == "GNOME" ]]; then
+# vim
+alias vim="gnome-terminal --window-with-profile=vim -- vim"
+fi
