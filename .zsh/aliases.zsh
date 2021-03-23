@@ -50,4 +50,7 @@ spytonenv(){
 dkr-sh(){
     docker exec $1 -it /bin/bash
 }
+
+
 alias dkrc-up="docker-compose up --build -V"
+alias dkrc-dwn="docker-compose down"
