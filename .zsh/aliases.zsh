@@ -3,7 +3,7 @@
 alias cfg='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias cfgu='cfg commit -a -m "updates"'
 
-# vim
+
 alias vim="gnome-terminal --window-with-profile=vim -- vim"
 
 
@@ -63,6 +63,5 @@ alias kk='microk8s kubectl'
 alias kkga="kk get --all-namespaces"
 alias kkda="kk describe --all-namespaces"
 alias kkdel="kk delete --all-namespaces"
-
 
 
