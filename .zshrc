@@ -1,5 +1,6 @@
-
+# setopt prompt_subst; zmodload zsh/datetime; PS4='+[$EPOCHREALTIME]%N:%i> '; set -x
 # zmodload zsh/zprof
+# for i in $(seq 1 10); do /usr/bin/time /bin/zsh -i -c exit; done;
 # ============================================
 #                   options
 # ============================================
@@ -28,6 +29,29 @@ HISTFILE=~/.zsh_history
 #                   completion
 # ============================================
 
+
+# compile the completion files for faster startup
+build_zsh_comp_file(){
+  # Compile zcompdump, if modified, to increase startup speed.
+  zcompdump="${ZDOTDIR:-$HOME}/.zcompdump"
+  #      -s   file   : if the file exists and is greater than zero
+  # file -nt  fileb  : if file is newer then fileb
+  if [[ -s "$zcompdump" && (! -s "${zcompdump}.zwc" || "$zcompdump" -nt "${zcompdump}.zwc") ]]; then
+    zcompile "$zcompdump"
+  fi
+}
+
+build_zsh_comp_file &!
+
+
+
+
+# reload zsh
+rlzsh(){
+    compinit -d 
+    build_zsh_comp_file &!
+}
+
 fpath=(~/.zsh/completion $fpath)
 
 
@@ -38,31 +62,19 @@ fi
 
 autoload -Uz compinit
 
-for dump in ~/.zcompdump(N.mh+24); do
-    compinit -D
-done
+# 60 * 60 * 24 = 86400
+# -le : less then
+# remember [ is alias for test withc has a man page
+if [ `stat -L --format %Y $HOME/.zcompdump` -le $((`date +%s` - 86400)) ]; then
+    rlzsh
+else
+  compinit -C
+fi
 
 
-#autoload -U bashcompinit
-#bashcompinit
+autoload -Uz bashcompinit
+bashcompinit
 
-bash_source() {
-  alias shopt=':'
-  alias _expand=_bash_expand
-  alias _complete=_bash_comp
-  emulate -L sh
-  setopt kshglob noshglob braceexpand
-
-  source "$@"
-}
-
-have() {
-  unset have
-  (( ${+commands[$1]} )) && have=yes
-}
-
-
-#bash_source '/usr/share/bash-completion/bash_completion' 
 
 
 

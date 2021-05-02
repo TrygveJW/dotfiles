@@ -12,6 +12,9 @@ set exchange
 set commentary
 set ReplaceWithRegister
 
+set visualbell
+set noerrorbells
+
 
 
 

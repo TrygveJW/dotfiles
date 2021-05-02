@@ -21,7 +21,7 @@ setopt extended_glob
 #           changing directories
 # ============================================
 setopt no_autocd                # no dir change without cd
-setopt no_auto_pushd            # does not push dirs to the stack wit cd MABY CHANGE ########################
+setopt auto_pushd               # does not push dirs to the stack wit cd 
 setopt pushd_ignore_dups        # do not push multiples of the same dir to the stack
 #setopt auto_name_dirs
 setopt no_cdable_vars	        # if trying to complete a nonexisten dir path from cd do NOT treat it as an completion from ~/
@@ -31,12 +31,13 @@ setopt auto_param_slash	        # if a dir name is completed add a traling/ inst
 # ============================================
 #                  history
 # ============================================
-setopt append_history
+# setopt append_history
 setopt extended_history         # Saves the start time and run time of commands in history
 setopt hist_expire_dups_first   # when the history limit is reached remove the oldest duplicates first
 setopt HIST_SAVE_NO_DUPS        # history commands is not in the history (to avoid fluff and recurtions)
 setopt hist_verify              # when executing commands with history expantions return the expanded line insted of executing it
 setopt hist_ignore_dups         # duplicates are not saved in to history
+setopt inc_append_history
 #setopt share_history            # Makes the history file shared, incrementaly adds new commands to the history file as they are typed
 
 

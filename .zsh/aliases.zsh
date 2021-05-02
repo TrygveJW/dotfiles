@@ -54,3 +54,15 @@ dkr-sh(){
 
 alias dkrc-up="docker-compose up --build -V"
 alias dkrc-dwn="docker-compose down"
+
+
+
+# kubernetes
+
+alias kk='microk8s kubectl'
+alias kkga="kk get --all-namespaces"
+alias kkda="kk describe --all-namespaces"
+alias kkdel="kk delete --all-namespaces"
+
+
+
