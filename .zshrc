@@ -40,6 +40,7 @@ build_zsh_comp_file(){
   fi
 }
 
+# &! zsh only detatchh and disown
 build_zsh_comp_file &!
 
 
