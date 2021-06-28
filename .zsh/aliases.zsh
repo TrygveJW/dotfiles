@@ -31,6 +31,12 @@ alias aptp='sudo apt purge'
 alias aptuu='sudo apt update && sudo apt upgrade -y'
 
 
+
+# adds multiline for the SOA on dig
+alias dig='dig +multiline'
+
+
+
 # load and change conf
 alias ezsh='vim $HOME/.zshrc'
 alias szsh='source $HOME/.zshrc'
