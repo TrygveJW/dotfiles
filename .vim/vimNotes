@@ -1,0 +1,170 @@
+
+to get a keycode ether run cat in terminal or press ctrl-v in vim commoan i.e. : mode
+
+
+###############################
+    commands
+###############################
+:ter[minal]	= opens terminal in split window
+:w !sudo tee %	= writes current file using sudo
+
+:wa             = writes to all changed buffers
+:wqa 		= writes to all changed buffers and quits
+:wq	(ZZ)	= writes and quits
+:q!	(ZQ)	= discard changes and qit
+
+:SW             = writes as sudo
+:SQ             = writes as sudo and qits
+:QQ             = quits everything without saving
+###############################
+    keys
+###############################
+
+---- stuff ----
+
+* = find next occurrence of word
+% = go to matching parenthesis
+
+-- bevegelse -- 
+fx = find x		i.e flytt til x
+tx = gå til x		i.e flytt til char før x 
+;  = gjenta forige f,F,t,T 
+,  = gjenta forige f,F,t,T bakover
+
+
+###############################
+    folds
+###############################
+zf              = define a fold from motion
+
+za              = toogle fold under cursor
+
+zo              = open fold under cursor
+
+
+
+
+###############################
+    seartch/substitute
+###############################
+n 	= go to next result
+N	= next result backwards
+
+/pattern 	= seartch a pattern
+?pattern	= seartch backwarsd for a pattern
+
+<leader>/pattern 	= regex seartch a pattern
+<leader>?pattern	= regex seartch backwarsd for a pattern
+
+
+:s(ubstitute)%(current file)/target/new
+options: 
+    /g  = on all lines
+    /c  = ask for confirmation
+    /i  = case insesitive
+
+notes:
+    - to replace somthing with newline use \r not \n
+###############################
+    nav
+###############################
+<leader>bb              = go to prev buffer
+
+'.                      = go to last insert line
+gi                      = insert at last insert point
+
+ctrl-o                  = go backwards in navigation movments
+ctrl-i                  = go forwards in navigation movments
+
+###############################
+    Marks
+###############################
+mx  = set a mark x at current possision
+'x  = go to mark x
+
+
+###############################
+    actions
+###############################
+-- change windows
+ctrl-w 
+hjkl - direction to move
+
+TODO: FINN UT MERE OM SWITCHING OG BYTTING AV VINDUER 
+
+
+-- edit over multiple lines:
+ctrl-v - to go to visual mode, select lines
+shift-i -  to go to insert do changes(will not show up everywhere untill done)
+esc -  to commit changes
+
+
+
+
+-- window actions
+
+
+
+
+###############################
+    Plugins
+###############################
+@vim commentary
+gc  - coment operator can be used in motions 
+gcc - comment out line
+
+@vim surround
+csx - change surouding x (eg cs'" changes 'hello' to "hello") 
+dsx - delete suronding x
+ysXY - addd surounding Y to x  (eg ysiw( adds a () around the current word
+Sx  - adds surounding x to the visual mode selected block 
+
+@replace with register
+[count]["x]gr{motion}   Replace {motion} text with the contents of register x.
+                        Especially when using the unnamed register, this is
+                        quicker than "_d{motion}P or "_c{motion}<C-R>"
+
+
+[count]["x]grr          Replace [count] lines with the contents of register x.
+                        To replace from the cursor position to the end of the
+                        line use ["x]gr$
+{Visual}["x]gr          Replace the selection with the contents of register x.
+
+@you complete me
+<leader>gd - get dock
+
+@ctrl p
+<ctrl-space> - fuzzyfind tag
+<ctrl-p>        - fuzzyfind file
+
+@spelunker
+Zl - Correct word under cursor
+Zg - Add word to spell_file
+Zw - mark a word as wrong (comment out of spellfile)
+
+ZN - Go to next wrong word
+ZP - go to prev wrong word
+
+
+
+
+###############################
+    Universal key shortcuts
+###############################
+action                          | key           |
+=================================================
+show help menue                 | <ctrl> <space> 
+go to definition/declaration    | <leader> g(o) t(o)
+show documentation              | <leader> s(how) d(ocumentation)
+show usage                      | <leader> s(how) u(sage)
+go to usage 
+
+Fuzzy open  
+Fuzzy go to method
+
+change tab left
+change tab right
+
+
+change window left              | 
+change window right
