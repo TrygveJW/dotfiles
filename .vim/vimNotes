@@ -43,7 +43,24 @@ zo              = open fold under cursor
 
 
 
+###############################
+    macros
+###############################
 
+# Record macro
+1.  q X         = start macro recording to register X                
+2.  commands    = the keystrokes to record
+3.  q           = stops the recording
+
+# play macro
+@ x             = play macro from register x
+num @ x         = play macro from register x num times
+
+<visual mode select> : norm @ x    = play the macro in register x on each of the selected lines
+
+### example ###
+q a I , ESC j q     = record to register a insert at start of line (I) insert , move one down stop
+5 @ a               = execute macro 5 times to get comma at start of 5 lines
 ###############################
     seartch/substitute
 ###############################
