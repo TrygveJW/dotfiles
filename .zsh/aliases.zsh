@@ -7,6 +7,10 @@ alias cfgu='cfg commit -a -m "updates"'
 alias vim="gnome-terminal --window-with-profile=vim -- vim"
 
 
+# pipe output to clipboard
+alias tclp=" | xclip"
+
+
 # add colors
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
