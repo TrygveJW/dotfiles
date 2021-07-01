@@ -77,6 +77,36 @@ bashcompinit
 
 
 
+# ============================================
+#                   options
+# ============================================
+
+
+# load aliases if any
+if [ -f $HOME/.zsh/aliases.zsh ]; then
+    source $HOME/.zsh/aliases.zsh
+fi
+
+# load functions if any
+if [ -f $HOME/.zsh/functions.sh ]; then
+    source $HOME/.zsh/functions.sh
+fi
+# load setopts if any
+if [ -f $HOME/.zsh/setopt.zsh ]; then
+    source $HOME/.zsh/setopt.zsh
+fi
+
+# load zsyles if any
+if [ -f $HOME/.zsh/zstyle.zsh ]; then
+    source $HOME/.zsh/zstyle.zsh
+fi
+
+# load keybinds if any
+if [ -f $HOME/.zsh/key_bindings.zsh ]; then
+    source $HOME/.zsh/key_bindings.zsh
+fi
+
+
 
 # ============================================
 #                   prompt
@@ -136,35 +166,5 @@ man() {
 
 # Adds the command not found install with 
 source /etc/zsh_command_not_found
-
-
-# ============================================
-#                   options
-# ============================================
-
-
-# load aliases if any
-if [ -f $HOME/.zsh/aliases.zsh ]; then
-    source $HOME/.zsh/aliases.zsh
-fi
-
-# load functions if any
-if [ -f $HOME/.zsh/functions.sh ]; then
-    source $HOME/.zsh/functions.sh
-fi
-# load setopts if any
-if [ -f $HOME/.zsh/setopt.zsh ]; then
-    source $HOME/.zsh/setopt.zsh
-fi
-
-# load zsyles if any
-if [ -f $HOME/.zsh/zstyle.zsh ]; then
-    source $HOME/.zsh/zstyle.zsh
-fi
-
-# load keybinds if any
-if [ -f $HOME/.zsh/key_bindings.zsh ]; then
-    source $HOME/.zsh/key_bindings.zsh
-fi
 
 # zprof
