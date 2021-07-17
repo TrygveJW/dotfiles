@@ -1,4 +1,4 @@
-
+# https://zsh.sourceforge.io/Doc/Release/Completion-System.html#Completion-System
 
 
 
@@ -16,8 +16,21 @@ zstyle ':completion:*' completer _expand _complete
 zstyle ':completion:*'  ''
 #zstyle ':completion:*' menu select=long
 zstyle ':completion:*' verbose true
-zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}'
 
+
+#https://zsh.sourceforge.io/Doc/Release/Completion-Widgets.html#Completion-Matching-Control
+# zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}'
+zstyle ':completion:*' matcher-list  \
+    'b:=. b:=*' \
+ 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' \
+
+# 'b:=. b:=*'
+# matches words to their equvalant with a dot prefix
+# e.g vim bashrc <tab> -> vim .bashrc
+#
+# 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 
+# Makes the matching case insensititve 
+#
 
 # the default completeion stuff 
 #zstyle ':completion:*' auto-description 'specify: %d'

@@ -12,7 +12,8 @@ syntax enable           " collors
 set nocompatible        " Dont be vi compatible
 
 " Cange the mapleader to , insted of \
-let mapleader = ","
+" let mapleader = ","
+" let mapleader = ""
 
 set backspace=indent,eol,start
 set nowrap              " do not automaticly wrap on load 
@@ -199,6 +200,13 @@ set foldlevel=2
 
 
 "###############################
+"  macros
+"###############################
+" this means that < qq > is start recording < q > is stop recoridng and Q is
+" play the macro
+nnoremap Q @q
+
+"###############################
 "   Command remaps
 "###############################
 
@@ -208,6 +216,11 @@ command Src   :source $HOME/.vimrc
 command SW :execute ':silent w !sudo tee % > /dev/null' | :edit!
 command SQ :execute ':silent w !sudo tee % > /dev/null' | :quit!
 " command SQ :qa!
+
+
+nnoremap <c-S> :w <CR>
+
+
 
 
 "###############################

@@ -48,6 +48,8 @@ Plugin 'tpope/vim-surround'         " Surround stuff vim
 Plugin 'tpope/vim-commentary'       " coment stuff out 
 Plugin 'vim-scripts/ReplaceWithRegister'       " Gives the possebilety for replacing a word with a register word with gr
 
+Plugin 'easymotion/vim-easymotion'
+
 "" Actions
 
 Plugin 'wesQ3/vim-windowswap'

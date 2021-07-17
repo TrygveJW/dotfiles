@@ -68,12 +68,15 @@ autoload -Uz compinit
 if [ `stat -L --format %Y $HOME/.zcompdump` -le $((`date +%s` - 86400)) ]; then
     rlzsh
 else
-  compinit -C
+    compinit -C
 fi
 
 
-autoload -Uz bashcompinit
-bashcompinit
+#
+# Bash completions does only work if bashcompinit is NOT called
+#
+
+
 
 
 

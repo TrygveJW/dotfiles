@@ -15,6 +15,7 @@ setopt no_beep
 
 # filename generation
 setopt extended_glob
+setopt dotglob
 
 # when a globbing does not expand to somthing leave it insted of printing an error message
 unsetopt nomatch
