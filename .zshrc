@@ -17,68 +17,12 @@ HISTSIZE=1000
 SAVEHIST=10000
 HISTFILE=~/.zsh_history
 
-
-
+# unalias run-help
+autoload run-help
 
 #http://zsh.sourceforge.net/Doc/Release/Completion-System.html
 
 # ALIASESSJAVA_HOME='/home/trygve/bin/jdk-14.0.1'
-
-# ============================================
-#                   completion
-# ============================================
-
-
-# compile the completion files for faster startup
-build_zsh_comp_file(){
-  # Compile zcompdump, if modified, to increase startup speed.
-  zcompdump="${ZDOTDIR:-$HOME}/.zcompdump"
-  #      -s   file   : if the file exists and is greater than zero
-  # file -nt  fileb  : if file is newer then fileb
-  if [[ -s "$zcompdump" && (! -s "${zcompdump}.zwc" || "$zcompdump" -nt "${zcompdump}.zwc") ]]; then
-    zcompile "$zcompdump"
-  fi
-}
-
-# &! zsh only detatchh and disown
-build_zsh_comp_file &!
-
-
-
-
-# reload zsh
-rlzsh(){
-    compinit -d 
-    build_zsh_comp_file &!
-}
-
-fpath=(~/.zsh/completion $fpath)
-
-
-# add completions
-if [ -d "$HOME/.zsh/completion/" ] ; then
-    fpath+="$HOME/.zsh/completion"
-fi
-
-autoload -Uz compinit
-
-# 60 * 60 * 24 = 86400
-# -le : less then
-# remember [ is alias for test withc has a man page
-if [ `stat -L --format %Y $HOME/.zcompdump` -le $((`date +%s` - 86400)) ]; then
-    rlzsh
-else
-    compinit -C
-fi
-
-
-#
-# Bash completions does only work if bashcompinit is NOT called
-#
-
-
-
-
 
 # ============================================
 #                   options
@@ -169,5 +113,69 @@ man() {
 
 # Adds the command not found install with 
 source /etc/zsh_command_not_found
+
+# ============================================
+#                   completion
+# ============================================
+
+
+zcompile_if_newer(){
+    #      -s   file   : if the file exists and is greater than zero
+    # file -nt  fileb  : if file is newer then fileb
+    if [[ -s ${1} && (! -s ${1}.zwc || ${1} -nt ${1}.zwc ) ]]; then
+        zcompile "$1"
+    fi
+}
+# setopt extended_glob
+add_comp_dir(){
+    if [[ -d ${1} ]]; then
+        for f in ${1}/^(*.zwc)(.); do
+            zcompile_if_newer $f
+        done
+    fi
+}
+
+comp_dir="$HOME/.zsh/completion"
+
+# add completions
+if [ -d $comp_dir ] ; then
+    add_comp_dir $comp_dir
+    fpath+=$comp_dir
+fi
+
+
+autoload -Uz compinit
+
+
+# Run the comp init 
+# Using the previous sessions compiled completion
+#
+# -D  = no dump file
+# -C  = no chek for new completion functions 
+# compinit -d ~/.zcompdump
+# compinit -D
+
+
+
+
+# 60 * 60 * 24 = 86400
+# -le : less then
+# remember [ is alias for test withc has a man page
+# if [ `stat -L --format %Y $HOME/.zsh_compdump` -le $((`date +%s` - 86400)) ]; then    
+    # compinit -d "$HOME/.zsh_compdump"  
+# else
+# fi
+compinit -d "$HOME/.zsh_compdump"  
+
+# https://zsh.sourceforge.io/Doc/Release/Completion-System.html#Use-of-compinit
+
+
+#
+# Bash completions does only work if bashcompinit is NOT called
+#
+
+
+
+
 
 # zprof

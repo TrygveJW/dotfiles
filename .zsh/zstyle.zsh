@@ -17,6 +17,8 @@ zstyle ':completion:*'  ''
 #zstyle ':completion:*' menu select=long
 zstyle ':completion:*' verbose true
 
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path ~/.zsh/completion_cache
 
 #https://zsh.sourceforge.io/Doc/Release/Completion-Widgets.html#Completion-Matching-Control
 # zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}'
