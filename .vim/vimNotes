@@ -90,9 +90,14 @@ notes:
 '.                      = go to last insert line
 gi                      = insert at last insert point
 
+
+g,                      = go to the previous entry in the change list
+g;                      = go to the next entry in the change list
+
 ctrl-o                  = go backwards in navigation movments
 ctrl-i                  = go forwards in navigation movments
 
+<num>gg                 = go to line <num>
 ###############################
     Marks
 ###############################
