@@ -13,7 +13,7 @@ export CHROME_EXECUTABLE='/snap/bin/chromium'
 
 
 # HISTORY
-HISTSIZE=1000
+HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.zsh_history
 
