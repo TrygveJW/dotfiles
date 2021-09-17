@@ -161,11 +161,12 @@ autoload -Uz compinit
 # 60 * 60 * 24 = 86400
 # -le : less then
 # remember [ is alias for test withc has a man page
-# if [ `stat -L --format %Y $HOME/.zsh_compdump` -le $((`date +%s` - 86400)) ]; then    
-    # compinit -d "$HOME/.zsh_compdump"  
-# else
-# fi
-compinit -d "$HOME/.zsh_compdump"  
+if [ `stat -L --format %Y $HOME/.zsh_compdump` -le $((`date +%s` - 86400)) ]; then    
+    compinit -d "$HOME/.zsh_compdump"  
+else
+    compinit -C
+fi
+# compinit -d "$HOME/.zsh_compdump"  
 
 # https://zsh.sourceforge.io/Doc/Release/Completion-System.html#Use-of-compinit
 

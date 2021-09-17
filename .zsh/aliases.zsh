@@ -28,13 +28,23 @@ alias hh='history 1 | grep -i'
 # watch with collor and mark diff with interval 1
 alias wa1='watch -dc -n 1'
 
+# ============================================
+#             package managing
+# ============================================
+
 # apt
-alias apts='apt-cache search'
+alias apts='apt search'
+alias aptinf='apt show'
 alias apti='sudo apt install'
 alias aptp='sudo apt purge'
 alias aptuu='sudo apt update && sudo apt upgrade -y'
 
-
+# snap
+alias snaps='snap find'
+alias snapinf='snap info'
+alias snapi='sudo snap install'
+alias snapp='sudo snap remove'
+alias snapuu='sudo snap refresh'
 
 # adds multiline for the SOA on dig
 alias dig='dig +multiline'
