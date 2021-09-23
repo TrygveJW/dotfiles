@@ -7,7 +7,7 @@
 #http://zsh.sourceforge.net/Guide/zshguide06.html
 
 
-export JAVA_HOME='/home/trygve/development/support_software/jdk-15.0.1'
+export JAVA_HOME='/home/trygve/development/support_software/jdk-17'
 
 export CHROME_EXECUTABLE='/snap/bin/chromium'
 
@@ -85,13 +85,17 @@ if [ -d "$HOME/.cargo/bin" ] ; then
 fi
 
 # add node 
-if [ -d $HOME/Development/support_software/node-*/bin ] ; then
-    PATH="$(realpath $HOME/Development/support_software/node-*/bin):$PATH"
+if [ -d $HOME/development/support_software/node-*/bin ] ; then
+    PATH="$(realpath $HOME/development/support_software/node-*/bin):$PATH"
+fi
+
+if [ -d $HOME/development/support_software/apache-maven-*/bin ] ; then
+    PATH="$(realpath $HOME/development/support_software/apache-maven-*/bin):$PATH"
 fi
 
 # add go
-if [ -d "$HOME/Development/support_software/go" ] ; then
-    PATH="$HOME/Development/support_software/go/bin:$PATH"
+if [ -d "$HOME/development/support_software/go" ] ; then
+    PATH="$HOME/development/support_software/go/bin:$PATH"
 fi
 
 # ============================================
