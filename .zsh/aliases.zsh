@@ -26,7 +26,7 @@ alias lg='ls -alFh | grep -i '
 alias hh='history 1 | grep -i'
 
 # watch with collor and mark diff with interval 1
-alias wa1='watch -dc -n 1'
+alias wa1='watch -c -n 1'
 
 # ============================================
 #             package managing
@@ -43,8 +43,8 @@ alias aptuu='sudo apt update && sudo apt upgrade -y'
 alias snaps='snap find'
 alias snapinf='snap info'
 alias snapi='sudo snap install'
-alias snapp='sudo snap remove'
-alias snapuu='sudo snap refresh'
+alias snapp="sudo snap remove"
+alias snapuu="sudo snap refresh"
 
 # adds multiline for the SOA on dig
 alias dig='dig +multiline'
@@ -65,6 +65,14 @@ spytonenv(){
     source "$dir"/bin/activate
 }
 
+pyenv(){
+    env_name=".py_env"
+    if [[ ! -d "$PWD/$env_name" ]]; then
+        echo "No env found creaing venv at $PWD/$env_name"
+        python3 -m venv $env_name
+    fi
+    source "$PWD/$env_name/bin/activate"
+}
 
 # docker
 dkr-sh(){

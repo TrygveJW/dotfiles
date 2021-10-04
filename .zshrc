@@ -22,8 +22,6 @@ autoload run-help
 
 #http://zsh.sourceforge.net/Doc/Release/Completion-System.html
 
-# ALIASESSJAVA_HOME='/home/trygve/bin/jdk-14.0.1'
-
 # ============================================
 #                   options
 # ============================================
@@ -174,12 +172,10 @@ fi
 
 # https://zsh.sourceforge.io/Doc/Release/Completion-System.html#Use-of-compinit
 
-
-#
-# Bash completions does only work if bashcompinit is NOT called
-#
-
-
+# ============================================
+#                   Plugins
+# ============================================
+source $HOME/.zsh/plugins/.zsh-bash-completions-fallback/zsh-bash-completions-fallback.plugin.zsh
 
 
 
