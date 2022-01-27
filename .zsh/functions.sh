@@ -1,5 +1,28 @@
 
 
+
+function bb (){
+cat <<-END
+
+-- nav --
+<alt>f          Forward one word
+<alt>b          Back one word
+
+-- delete --
+<ctrl>u         Clear to begining of line
+<ctrl>k         Clear to end of line
+
+<ctrl>b         Delete one word backwards
+
+-- misc --
+<ctrl>l         Clear screen
+<ctrl>d         Exit shell
+
+END
+}
+
+
+
 function pargrep (){
     if [[ "$1" == "" ]]; then
         echo "Usage: pargrep  PATTERN [FILE]..."

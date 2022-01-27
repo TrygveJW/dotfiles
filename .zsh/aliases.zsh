@@ -1,7 +1,10 @@
 # alias for the git dotfile stuff
 # https://www.atlassian.com/git/tutorials/dotfiles
 alias cfg='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-alias cfgu='cfg commit -a -m "updates"'
+alias cfgu='cfg commit -S -a -m "updates"'
+
+alias gitc='git commit -S'
+alias gitcu='git commit -S -a -m "updates"'
 
 
 alias vim="gnome-terminal --window-with-profile=vim -- vim"
