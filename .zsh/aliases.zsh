@@ -77,14 +77,70 @@ pyenv(){
     source "$PWD/$env_name/bin/activate"
 }
 
+pipreq(){
+    local rtype
+    local pipcmd
+    local rfile
+
+    if [[ "$1" == "dump" ]] || [[ "$1" == "d" ]]; then
+        rtype="dump"
+    elif [[ "$1" == "install" ]] || [[ "$1" == "i" ]]; then
+        rtype="install"
+    else
+        echo "Usage pipreq type [REQ_FILE]"
+        echo 
+        echo "Installs or dumps to the REQ_FILE file in the local dir"
+        echo "if no REQ_FILE is defined requirements.txt is used"
+        echo 
+        echo "type:"
+        echo "d,  dump      dump the dependencys to the req file"
+        echo "i,  instell   install the dependencys from the req file"
+        return 1
+    fi
+
+    if [[ -n "$(command -v pip3)" ]]; then
+        pipcmd="pip3" 
+    elif [[ -n "$(command -v pip)" ]]; then
+        echo "pip3 not found using pip"
+        pipcmd="pip"
+    else
+        echo "no pip version found"
+        return 1
+    fi 
+
+    shift
+    if ! [[ "$1" == "" ]]; then
+        rfile="$1"
+    fi
+
+    rfile="requirements.txt"
+
+
+    if [[  $rtype = "dump" ]]; then
+        $pipcmd freeze > $rfile
+    elif [[  $rtype = "install" ]]; then
+        $pipcmd install -r $rfile
+    fi
+}
+
 # docker
-dkr-sh(){
+dkrsh(){
+    if [[ "$1" == "-h" ]] || [[ "$1" == "" ]]; then
+        echo "Usage dkrsh [-h] CONTAINER"
+        echo 
+        echo "Starts a shell session in the container named CONTAINER "
+        echo 
+        echo "opions"
+        echo "-h            shows this help"
+        return 1
+    fi
     docker exec $1 -it /bin/bash
 }
 
 
-alias dkrc-up="docker-compose up --build -V"
-alias dkrc-dwn="docker-compose down"
+alias dkrcup="docker-compose up --build -V"
+alias dkrcdwn="docker-compose down"
+alias dkrclog="docker-compose logs -f"
 
 
 
@@ -96,3 +152,9 @@ alias kkda="kk describe --all-namespaces"
 alias kkdel="kk delete --all-namespaces"
 
 
+# jetbrains
+#
+# skape en bs fil med output finnut ac det kansje nokk med direct to dev/null
+#
+# alias jbintel="nohup intellij-idea-ultimate ./ & disown > /dev/null"
+# alias jbpycha="nohup pycharm-professional ./ & disown > /dev/null"
