@@ -1,5 +1,54 @@
 
 
+
+function bb (){
+cat <<-END
+
+-- nav --
+<alt>f          Forward one word
+<alt>b          Back one word
+
+-- delete --
+<ctrl>u         Clear to begining of line
+<ctrl>k         Clear to end of line
+
+<ctrl>b         Delete one word backwards
+
+-- misc --
+<ctrl>l         Clear screen
+<ctrl>d         Exit shell
+
+-- help categories--
+bbd             dev commands
+
+END
+}
+
+
+function bbd (){
+cat <<-END
+
+-- python --
+pyenv           init or join venv in current dir
+pipreq i|d      install| dump requierments
+
+
+-- docker --
+dkrsh P1        starts a shell session in the container P1 
+
+-- docker-compose --
+dkrcup          docker compose up with build
+dkrdwn          docker compose down
+dkrlog          docker compose log follow
+
+-- ide --
+jbintel         starts inellij detached
+jbpycha         starts pycharm detached
+
+END
+}
+
+
 function pargrep (){
     if [[ "$1" == "" ]]; then
         echo "Usage: pargrep  PATTERN [FILE]..."
