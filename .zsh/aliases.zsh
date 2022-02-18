@@ -134,7 +134,7 @@ dkrsh(){
         echo "-h            shows this help"
         return 1
     fi
-    docker exec $1 -it /bin/bash
+    docker exec -it "$1" /bin/bash
 }
 
 
