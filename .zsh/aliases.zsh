@@ -52,7 +52,13 @@ alias snapuu="sudo snap refresh"
 # adds multiline for the SOA on dig
 alias dig='dig +multiline'
 
-
+# rsync for cp/mv
+cpr() {
+  rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 "$@"
+} 
+mvr() {
+  rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 --remove-source-files "$@"
+}
 
 # load and change conf
 alias ezsh='vim $HOME/.zshrc'
