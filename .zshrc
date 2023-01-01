@@ -7,9 +7,6 @@
 #http://zsh.sourceforge.net/Guide/zshguide06.html
 
 
-export JAVA_HOME='/home/trygve/development/support_software/jdk-17'
-
-export CHROME_EXECUTABLE='/snap/bin/chromium'
 
 
 # HISTORY
@@ -19,9 +16,17 @@ HISTFILE=~/.zsh_history
 
 # unalias run-help
 autoload run-help
+# ============================================
+#                   ENV vars
+# ============================================
+
+
+export JAVA_HOME='/home/trygve/development/support_software/jdk-15.0.1'
+export CHROME_EXECUTABLE='/snap/bin/chromium'
+export DOCKER_BUILDKIT=1
+export COMPOSE_DOCKER_CLI_BUILD=1
 
 #http://zsh.sourceforge.net/Doc/Release/Completion-System.html
-
 # ============================================
 #                   options
 # ============================================
@@ -182,3 +187,24 @@ source $HOME/.zsh/plugins/.zsh-bash-completions-fallback/zsh-bash-completions-fa
 
 
 # zprof
+
+
+condainit(){
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/trygve/.anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/trygve/.anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/trygve/.anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/trygve/.anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+}
+
+
