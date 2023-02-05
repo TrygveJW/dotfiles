@@ -20,7 +20,7 @@ cat <<-END
 
 -- help categories--
 bbd             dev commands
-
+bbs             sofware
 END
 }
 
@@ -44,6 +44,16 @@ dkrlog          docker compose log follow
 -- ide --
 jbintel         starts inellij detached
 jbpycha         starts pycharm detached
+
+END
+}
+
+function bbs (){
+cat <<-END
+
+-- system info --
+inxi		System info util
+
 
 END
 }

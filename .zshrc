@@ -7,7 +7,7 @@
 #http://zsh.sourceforge.net/Guide/zshguide06.html
 
 
-export JAVA_HOME='/home/trygve/development/support_software/jdk-17'
+export JAVA_HOME='/home/trygve/development/support_software/jdk/jdk-19.0.1'
 
 export CHROME_EXECUTABLE='/snap/bin/chromium'
 export COMPOSE_DOCKER_CLI_BUILD=1 
@@ -192,12 +192,28 @@ source $HOME/.zsh/plugins/.zsh-bash-completions-fallback/zsh-bash-completions-fa
 
 nvminit(){
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 }
 
 condainit(){
-eval "$(/home/trygve/.anaconda3/bin/conda shell.zsh hook)"
+    eval "$(/home/trygve/.anaconda3_data/bin/conda shell.zsh hook)"
+    compinit
 }
+
+
+cs(){
+    case ${1} in 
+        "conda")
+        (evince "$HOME/.cheatsheets/conda.pdf" & disown) 3>&2 2>/dev/null
+        # evince "$HOME/.cheatsheets/conda.pdf" &>/dev/null & disown &>/dev/null
+            ;;
+        *)
+        echo "No cheatsheet with given name found"
+        ;;
+    esac
+
+}
+
 
