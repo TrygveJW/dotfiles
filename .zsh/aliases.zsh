@@ -35,14 +35,14 @@ alias wa1='watch -c -n 1'
 #             package managing
 # ============================================
 
-# packet manager
-alias pmg="nala"
+
+
 # apt
-alias apts='pmg search'
-alias aptinf='pmg show'
-alias apti='sudo pmg install'
-alias aptp='sudo pmg purge'
-alias aptuu='sudo pmg update && sudo pmg upgrade -y'
+alias apts='nala search'
+alias aptinf='nala show'
+alias apti='sudo nala install'
+alias aptp='sudo nala purge'
+alias aptuu='sudo nala update && sudo nala upgrade -y'
 
 # snap
 alias snaps='snap find'
