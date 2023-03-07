@@ -35,6 +35,8 @@ alias wa1='watch -c -n 1'
 #             package managing
 # ============================================
 
+
+
 # apt
 APT_MNGR='nala'
 alias apts="$APT_MNGR search"
@@ -42,6 +44,7 @@ alias aptinf="$APT_MNGR show"
 alias apti="sudo $APT_MNGR install"
 alias aptp="sudo $APT_MNGR purge"
 alias aptuu="sudo $APT_MNGR update && sudo $APT_MNGR upgrade -y"
+
 
 # snap
 alias snaps='snap find'
