@@ -150,11 +150,11 @@ nmap Q gqap
 " 
 nnoremap <leader><space> :nohlsearch<CR>
 
-nnoremap B ^
-nnoremap E $
+" nnoremap B ^
+" nnoremap E $
 
-onoremap B ^
-onoremap E $
+" onoremap B ^
+" onoremap E $
 
 
 " https://vim.fandom.com/wiki/Moving_lines_up_or_down
@@ -173,14 +173,14 @@ vnoremap <A-j> :m'>+1<CR>gv=gv
 " make the leader + yank/paste use system clipboard
 nnoremap <leader>y  "+y
 vnoremap <leader>y  "+y
-nnoremap <leader>yy "+yy
+nnoremap <leader><leader>y "+yy
 
-nnoremap <leader>p "+p
-vnoremap <leader>p "+p
+nnoremap <leader><leader>p "+p
+vnoremap <leader><leader>p "+p
 
 nnoremap <leader>d  "+d
 vnoremap <leader>d  "+d
-nnoremap <leader>dd "+dd
+nnoremap <leader><leader>d "+dd
 
 
 
