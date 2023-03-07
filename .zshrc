@@ -187,6 +187,7 @@ if [ `stat -L --format %Y $HOME/.zsh_compdump` -le $((`date +%s` - 86400)) ]; th
 else
     compinit -C
 fi
+
 # compinit -d "$HOME/.zsh_compdump"  
 
 # https://zsh.sourceforge.io/Doc/Release/Completion-System.html#Use-of-compinit
